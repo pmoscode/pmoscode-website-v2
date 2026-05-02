@@ -1,14 +1,5 @@
 <aside class="sidebar">
 
-  {{- /* Brand Box */}}
-  <div class="widget widget-brand">
-    <img class="widget-brand__avatar" src="/img/avatar.png" alt="{{ .Site.Title }} Logo">
-    <div class="widget-brand__logo">{{ .Site.Title }}<span>.</span></div>
-    <p class="widget-brand__bio">{{ .Site.Params.bio }}</p>
-    {{- partial "social-icons.html" . }}
-  </div>
-
-  {{- partial "widgets/popular-posts.html" . }}
   {{- partial "widgets/explore-topics.html" . }}
   {{- partial "widgets/tag-clouds.html" . }}
 

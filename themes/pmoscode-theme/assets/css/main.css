@@ -573,20 +573,6 @@ a:hover { color: var(--primary); }
 .popular-item__title a:hover { color: var(--primary); }
 .popular-item__date { font-size: 11px; color: var(--meta); margin-top: 3px; }
 
-/* Explore topics */
-.topic-list { display: flex; flex-direction: column; gap: 8px; }
-.topic-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-}
-.topic-item a { color: var(--dark); display: flex; align-items: center; gap: 6px; }
-.topic-item a:hover { color: var(--primary); }
-.topic-item__arrow { color: var(--primary); }
-.topic-item__count { font-size: 12px; color: var(--meta); }
 
 /* Newsletter widget */
 .widget-newsletter p { font-size: 14px; color: var(--meta); margin-bottom: 10px; }
@@ -636,6 +622,49 @@ a:hover { color: var(--primary); }
 }
 .widget-slider__btn:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
 
+/* ---------- ARCHIVES ---------- */
+.archives { max-width: 760px; }
+.archives__year-block { margin-bottom: 48px; }
+.archives__year {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.archives__list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.archives__item {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.archives__date {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--meta);
+  min-width: 52px;
+}
+.archives__title {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+}
+.archives__title:hover { color: var(--primary); }
+.pill--sm {
+  font-size: 10px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
 /* ---------- HOMEPAGE ---------- */
 
 /* Hero */
@@ -673,21 +702,11 @@ a:hover { color: var(--primary); }
 .hero__featured-overlay h2 a:hover { color: var(--primary); }
 .hero__featured-meta { font-size: 12px; color: rgba(255,255,255,.8); }
 
-/* Tabs */
-/* Popular Posts Box (Hero) */
-.hero__popular {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.hero__popular-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--dark);
-  margin: 0 0 2px;
+/* Brand Box (Hero) */
+.hero__brand {
+  position: sticky;
+  top: 80px;
+  align-self: start;
 }
 
 /* Editor's Pick */

@@ -1,0 +1,32 @@
+{{- define "main" }}
+{{- partial "page-header.html" . }}
+<div class="page-wrap">
+  <div class="archives">
+
+    {{- $posts := where .Site.RegularPages "Section" "posts" }}
+    {{- $posts  = $posts | complement (where $posts "Draft" true) }}
+    {{- $byYear := $posts.GroupByDate "2006" }}
+
+    {{- range $byYear }}
+    <div class="archives__year-block">
+      <h2 class="archives__year">{{ .Key }}</h2>
+      {{- partial "wave-divider.html" "" }}
+      <ul class="archives__list">
+        {{- range .Pages }}
+        <li class="archives__item">
+          <time class="archives__date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "02. Jan" }}
+          </time>
+          <a class="archives__title" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{- with index .Params.categories 0 }}
+          <span class="archives__cat pill pill--sm">{{ . }}</span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+  </div>
+</div>
+{{- end }}

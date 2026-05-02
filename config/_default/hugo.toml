@@ -106,6 +106,10 @@ enableGitInfo = false
     name       = "About"
     url        = "/about/"
     weight     = 5
+  [[menu.main]]
+    name       = "Archives"
+    url        = "/archives/"
+    weight     = 6
 
 [markup]
   [markup.goldmark]
