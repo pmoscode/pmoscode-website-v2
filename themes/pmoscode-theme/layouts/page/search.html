@@ -1,0 +1,76 @@
+{{- define "main" }}
+<div class="page-wrap">
+  {{- partial "page-header.html" . }}
+  <div class="search-page">
+
+    <div class="search-page__input-wrap">
+      <svg class="search-page__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" id="search-input" class="search-page__input"
+             placeholder="Suchbegriff eingeben…" autocomplete="off" autofocus>
+    </div>
+
+    <div id="search-results" class="search-page__results"></div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+<script>
+(function () {
+  var input   = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var fuse    = null;
+
+  /* Pre-fill from URL ?q= */
+  var q = new URLSearchParams(window.location.search).get('q') || '';
+  if (q) input.value = q;
+
+  fetch('/index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      fuse = new Fuse(data, {
+        keys: [
+          { name: 'title',      weight: 0.7 },
+          { name: 'summary',    weight: 0.3 },
+          { name: 'categories', weight: 0.1 },
+          { name: 'tags',       weight: 0.1 }
+        ],
+        includeScore: true,
+        threshold: 0.4
+      });
+      if (q) render(fuse.search(q));
+    });
+
+  input.addEventListener('input', function () {
+    var val = this.value.trim();
+    if (!fuse) return;
+    if (!val) { results.innerHTML = ''; return; }
+    render(fuse.search(val));
+    var url = new URL(window.location);
+    url.searchParams.set('q', val);
+    history.replaceState(null, '', url);
+  });
+
+  function render(items) {
+    if (!items.length) {
+      results.innerHTML = '<p class="search-page__empty">Keine Ergebnisse gefunden.</p>';
+      return;
+    }
+    results.innerHTML = items.map(function (r) {
+      var p    = r.item;
+      var cats = (p.categories || []).map(function (c) {
+        return '<span class="pill pill--primary" style="font-size:11px;padding:2px 8px;">' + c + '</span>';
+      }).join('');
+      return '<a class="search-result" href="' + p.url + '">'
+        + '<div class="search-result__title">'   + p.title + '</div>'
+        + '<div class="search-result__meta">'    + p.date + (cats ? '&nbsp;&nbsp;' + cats : '') + '</div>'
+        + (p.summary ? '<p class="search-result__summary">' + p.summary + '</p>' : '')
+        + '</a>';
+    }).join('');
+  }
+})();
+</script>
+{{- end }}

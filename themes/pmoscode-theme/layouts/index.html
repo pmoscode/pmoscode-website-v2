@@ -11,7 +11,9 @@
         {{- $featured := first 1 (where $posts "Params.featured" true) }}
         {{- if not $featured }}{{ $featured = first 1 $posts }}{{ end }}
         {{- range $featured }}
-        {{- partial "post-image.html" (dict "page" . "size" "900x675 webp" "class" "hero__featured-img") }}
+        <a class="hero__featured-link" href="{{ .Permalink }}">
+          {{- partial "post-image.html" (dict "page" . "size" "900x675 webp" "class" "hero__featured-img") }}
+        </a>
         <div class="hero__featured-overlay">
           <span class="pill pill--primary">
             {{- with index .Params.categories 0 }}{{ . }}{{ else }}Featured{{ end }}
@@ -30,9 +32,9 @@
         {{- partial "wave-divider.html" "" }}
         {{- range first 4 $posts }}
         <div class="card card--mini">
-          <div class="card__img-wrap">
+          <a class="card__img-wrap" href="{{ .Permalink }}">
             {{- partial "post-image.html" (dict "page" . "size" "70x55 webp") }}
-          </div>
+          </a>
           <div class="card__body">
             <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
             <div class="card__meta">{{ .Date.Format "02 Jan 2006" }}</div>
@@ -65,12 +67,12 @@
           {{- /* Großes Hauptbild — Kategorie-Pill oben links auf dem Bild */}}
           {{- with index $picks 0 }}
           <div class="card editors-pick__main">
-            <div class="card__img-wrap card__img-wrap--labeled">
+            <a class="card__img-wrap card__img-wrap--labeled" href="{{ .Permalink }}">
               {{- partial "post-image.html" (dict "page" . "size" "800x530 webp") }}
               <span class="card__img-label pill pill--primary">
                 {{- with index .Params.categories 0 }}{{ . }}{{ else }}Editor's Pick{{ end }}
               </span>
-            </div>
+            </a>
             <div class="card__body">
               <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
               <div class="card__meta">
@@ -85,9 +87,9 @@
           <div class="editors-pick__stack">
             {{- range after 1 $picks | first 4 }}
             <div class="card card--h">
-              <div class="card__img-wrap">
+              <a class="card__img-wrap" href="{{ .Permalink }}">
                 {{- partial "post-image.html" (dict "page" . "size" "120x90 webp") }}
-              </div>
+              </a>
               <div class="card__body">
                 <div class="card__title" style="font-size:15px;"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
                 <div class="card__meta">{{ .Date.Format "02 January 2006" }}</div>
@@ -114,9 +116,9 @@
         <div class="cat-section__grid">
           {{- range first 2 .Pages }}
           <div class="card">
-            <div class="card__img-wrap">
+            <a class="card__img-wrap" href="{{ .Permalink }}">
               {{- partial "post-image.html" (dict "page" . "size" "600x380 webp") }}
-            </div>
+            </a>
             <div class="card__body">
               <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
               <div class="card__meta">
@@ -130,10 +132,10 @@
         {{- with after 2 .Pages | first 4 }}
         <div class="cat-section__extra-grid">
           {{- range . }}
-          <div class="card card--h">
-            <div class="card__img-wrap">
-              {{- partial "post-image.html" (dict "page" . "size" "120x90 webp") }}
-            </div>
+           <div class="card card--h">
+             <a class="card__img-wrap" href="{{ .Permalink }}">
+               {{- partial "post-image.html" (dict "page" . "size" "120x90 webp") }}
+             </a>
             <div class="card__body">
               <div class="card__title" style="font-size:14px;"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
               <div class="card__meta">{{ .Date.Format "02 January 2006" }}</div>
@@ -156,9 +158,9 @@
         <div class="latest-list">
           {{- range $pager.Pages }}
           <article class="latest-item">
-            <div class="latest-item__img">
+            <a class="latest-item__img" href="{{ .Permalink }}">
               {{- partial "post-image.html" (dict "page" . "size" "400x300 webp") }}
-            </div>
+            </a>
             <div class="latest-item__body">
               <div class="latest-item__meta">
                 <span style="font-size:12px;color:var(--meta);">

@@ -41,6 +41,12 @@ enableGitInfo = false
     email = "hello@pmoscode.de"
     location = "Germany"
 
+  # ── Matomo Analytics ─────────────────────────────────────────────────────
+  # Nur aktiv wenn beide Werte gesetzt sind (wird in dev-Umgebung nicht geladen)
+  [params.matomo]
+    url    = ""   # z.B. "https://analytics.example.com/"
+    siteId = ""   # z.B. "1"
+
   [[params.social]]
     name = "GitHub"
     url  = "https://github.com/pmoscode"
@@ -107,7 +113,7 @@ enableGitInfo = false
       unsafe = true
 
 [outputs]
-  home    = ["HTML"]
+  home    = ["HTML", "JSON"]
   page    = ["HTML"]
   section = ["HTML"]
 

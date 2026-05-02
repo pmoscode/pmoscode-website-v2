@@ -1,0 +1,63 @@
+{{- /*
+  Usage: {{< download file="misc/Pi_Cam_Holder.stl" label="Pi Cam Holder" >}}
+  Parameters:
+    file  – path relative to the page bundle (required)
+    label – display name (optional, defaults to filename)
+*/ -}}
+{{- $file  := .Get "file" -}}
+{{- $label := .Get "label" -}}
+{{- $res   := .Page.Resources.GetMatch $file -}}
+{{- if not $res -}}
+  {{- warnf "download shortcode: file %q not found in page bundle of %q" $file .Page.File.Path -}}
+{{- else -}}
+  {{- $ext  := path.Ext $file | lower -}}
+  {{- $name := path.Base $file -}}
+  {{- if not $label -}}{{- $label = $name -}}{{- end -}}
+  {{- $typeName := strings.ToUpper (strings.TrimLeft "." $ext) -}}
+<a class="download-card" href="{{ $res.RelPermalink }}" download>
+
+  {{- /* ── File-type icon ───────────────────────────────────── */}}
+  <div class="download-card__icon">
+    {{- if or (eq $ext ".stl") (eq $ext ".obj") (eq $ext ".3mf") -}}
+    {{/* 3-D box */}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+    </svg>
+    {{- else if eq $ext ".pdf" -}}
+    {{/* Document */}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <text x="6" y="18" font-size="5" font-weight="700" stroke="none" fill="currentColor" font-family="sans-serif">PDF</text>
+    </svg>
+    {{- else if or (eq $ext ".zip") (eq $ext ".gz") (eq $ext ".tar") (eq $ext ".7z") (eq $ext ".rar") -}}
+    {{/* Archive */}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/>
+      <line x1="10" y1="12" x2="14" y2="12"/>
+    </svg>
+    {{- else -}}
+    {{/* Generic file */}}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+    </svg>
+    {{- end }}
+  </div>
+
+  {{- /* ── File info ────────────────────────────────────────── */}}
+  <div class="download-card__info">
+    <div class="download-card__label">{{ $label }}</div>
+    <div class="download-card__meta">{{ $typeName }} Download</div>
+  </div>
+
+  {{- /* ── Download arrow ──────────────────────────────────── */}}
+  <div class="download-card__action">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+  </div>
+
+</a>
+{{- end -}}
