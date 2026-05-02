@@ -22,12 +22,12 @@ The result was that the best slatted frame is a fixed one (no springs or any oth
 So I decided to build one by myself. Usually the size of a slatted frame is 2.00 x 0.90 meters.
 So I bought planed wood. I had to cut two long and two short pieces. For the latch I had to cut 14 pieces.
 
-![14 pieces of latch](img/resized001.jpg "14 pieces of latch")
+{{< img src="img/resized001.jpg" alt="14 pieces of latch" >}}
 
 The cuts were simple and quickly done. But on the latch I had to drill a hole which was 2 cm from the edge.
 And of course the hole had to be centered. To ensure that the holes would be drilled in the same place every time I built a template.
 
-![Hole template](img/resized003.jpg "Hole template")
+{{< img src="img/resized003.jpg" alt="Hole drilling template" >}}
 
 Now it was only a matter of time…
 
@@ -39,12 +39,12 @@ To be able to have the same space all the time I cut two wooden blocks which wer
 From the starting point I placed one latch and marked the drill points through the holes of the latch.
 Then I placed the space-blocks beside the first latch and placed the second latch next to the blocks. I repeated this 12 times.
 
-![Latch spacer](img/resized004.jpg "Latch spacer") ![Latch spacer](img/resized005.jpg "Latch spacer")
+{{< imgrow "img/resized004.jpg" "img/resized005.jpg" >}}
 
 Now I had a lot of marks on the frame; time for the drill…
 
 The last remaining thing was to glue the dowels on the frame.
 
-![Glued dowels](img/resized007.jpg "Glued dowels") ![Latch spacer](img/resized009.jpg "Latch spacer")
+{{< imgrow "img/resized007.jpg" "img/resized009.jpg" >}}
 
 That's it…

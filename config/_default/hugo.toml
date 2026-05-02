@@ -8,7 +8,6 @@ enableGitInfo = false
   description = "pmoscode – Code, Inspiration und mehr"
   author = "pmoscode"
   bio = "Hello, we're content creators fascinated by code, technology and lifestyle..."
-  copyrightYear = "2024"
 
   # 5 Post-Slugs für den Editor's Pick Block (Reihenfolge: 1 groß + 4 klein)
   editors_pick = [
@@ -69,33 +68,39 @@ enableGitInfo = false
     url        = "/"
     weight     = 1
   [[menu.main]]
-    name       = "Lifestyle"
-    url        = "/categories/lifestyle/"
+    name       = "Woodwork"
+    url        = "/categories/woodwork/"
     weight     = 2
   [[menu.main]]
-    name       = "Inspiration"
-    url        = "/categories/inspiration/"
+    name       = "Hardware"
+    url        = "/categories/hardware/"
     weight     = 3
   [[menu.main]]
-    name       = "Pages"
+    name       = "More"
     url        = "#"
     weight     = 4
     [menu.main.params]
       hasChildren = true
   [[menu.main]]
-    name       = "About"
-    url        = "/about/"
-    parent     = "Pages"
+    name       = "3D Print"
+    url        = "/categories/3d-print/"
+    parent     = "More"
     weight     = 1
   [[menu.main]]
-    name       = "Contact"
-    url        = "/contact/"
-    parent     = "Pages"
+    name       = "Lasercutter"
+    url        = "/categories/lasercutter/"
+    parent     = "More"
     weight     = 2
   [[menu.main]]
-    name       = "Contact"
-    url        = "/contact/"
-    weight     = 5
+    name       = "Computer"
+    url        = "/categories/computer/"
+    parent     = "More"
+    weight     = 3
+  [[menu.main]]
+    name       = "About"
+    url        = "/about/"
+    parent     = "More"
+    weight     = 4
 
 [markup]
   [markup.goldmark]

@@ -34,14 +34,11 @@ Solution: Some kind of flea market. Or better: (in Germany) ebay-kleinanzeigen.d
 So I found the first three parts. (I will introduce the parts in a later article)
 The last one I already owned. (Means: I owned a RFID reader, which is sufficient)
 
-*Barcode scanner*
-![Bar Code Scanner](img/barCodeScanner.jpg)
+{{< img src="img/barCodeScanner.jpg" caption="Barcode scanner" >}}
 
-*Receipt printer*
-![Receipt printer](img/receiptPrinter.jpg)
+{{< img src="img/receiptPrinter.jpg" caption="Receipt printer" >}}
 
-*Cash register*
-![Cash Register](img/cashRegister.jpg)
+{{< img src="img/cashRegister.jpg" caption="Cash register" >}}
 
 Now, I'm waiting to get the parts…
 

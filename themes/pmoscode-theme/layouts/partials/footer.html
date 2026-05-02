@@ -2,7 +2,7 @@
   <div class="footer-bar">
     <div class="footer-bar__inner">
       <span class="footer-bar__copy">
-        &copy; {{ .Site.Params.copyrightYear | default now.Year }} {{ .Site.Params.author | default .Site.Title }}.
+        &copy; {{ now.Year }} {{ .Site.Params.author | default .Site.Title }}.
       </span>
       {{- partial "social-icons.html" . }}
       <a href="#" class="footer-bar__top" id="back-to-top">∧ Back to Top</a>

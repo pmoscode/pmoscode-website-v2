@@ -40,4 +40,4 @@ You can find the free STL files here:
 
 And here a few pics:
 
-![Parts](img/coasters.jpg)
+{{< img src="img/coasters.jpg" alt="VW coasters set" >}}

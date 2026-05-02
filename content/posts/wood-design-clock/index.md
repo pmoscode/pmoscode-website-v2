@@ -53,4 +53,4 @@ So this little project was finished. My darling was very happy about it... :)
 
 Here is an overview of the single parts:
 
-![Parts](img/parts.png)
+{{< img src="img/parts.png" alt="Clock parts overview" >}}

@@ -31,7 +31,7 @@ So far so good…
 
 What I noticed relatively quickly was the fact that the laser left a relatively dark trail of dust after the burning process. This was always aligned to the north – i.e. as seen from the laser head.
 
-![Dust](img/dust.jpg "Dust trail left by the laser")
+{{< img src="img/dust.jpg" alt="Dust trail left by the laser" >}}
 
 The more I worked with the laser cutter, the more this discoloration bothered me. I was able to mitigate the whole thing a bit by wiping the spots with a damp sponge.
 But that's not the point. Something like this shouldn't even happen...
@@ -48,31 +48,31 @@ That's why I started looking for an alternative to this "Air Assist".
 
 I found what I was looking for on **[Thingiverse](https://www.thingiverse.com/thing:5493245)**:
 
-![Air Assist on Thingiverse](img/thingiverse-1.png "Air Assist on Thingiverse")
+{{< img src="img/thingiverse-1.png" alt="Air Assist on Thingiverse" >}}
 
 This is exactly what is sold by Makerblock, except it mounts to the laser head a little differently.
 
 So I printed it on my 3D printer and assembled it. It attached very well to the lower part of the laser head – the existing screws were simply reused.
 
-![Air Assist on Thingiverse](img/thingiverse-2.png "Mounted to the laser head")
+{{< img src="img/thingiverse-2.png" alt="Mounted to the laser head" >}}
 
 Then I ordered a rubber hose (actually intended for a **[windshield washer](https://www.amazon.de/dp/B08ZHL16BS)**) and two **[12V air pumps](https://www.amazon.de/dp/B0786L1C3R)**:
 
-![Air pump](img/pump.jpg "Air pump") ![Hose](img/hose.jpg "Rubber hose")
+{{< imgrow "img/pump.jpg" "img/hose.jpg" >}}
 
 After everything arrived, I started to assemble all the stuff. This is how it looks now:
 
-![Hose connection](img/hose_connection.jpg "Hose connection") ![Hose corner](img/hose_corner.jpg "Hose corner")
+{{< imgrow "img/hose_connection.jpg" "img/hose_corner.jpg" >}}
 
-![Hose mount](img/hose_mount.jpg "Hose mount") ![Pumps assembled](img/pumps_assembled.jpg "Pumps assembled")
+{{< imgrow "img/hose_mount.jpg" "img/pumps_assembled.jpg" >}}
 
 These simple air pumps don't have the air flow rate of the real "Air Assist", but it is enough for now. The result is perfect:
 
-![Dusty material](img/material_dusty.jpg "Before: dusty") ![Clean material](img/material_clean.jpg "After: clean")
+{{< imgrow "img/material_dusty.jpg" "img/material_clean.jpg" >}}
 
 Both side by side:
 
-![Comparison](img/comparison.jpg "Before/after comparison")
+{{< img src="img/comparison.jpg" alt="Before/after comparison" >}}
 
 I will also build a case for it with a power switch to make it look nice and tidy. And then I must not forget to turn it on...
 

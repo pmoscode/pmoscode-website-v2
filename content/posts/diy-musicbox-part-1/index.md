@@ -57,13 +57,13 @@ The main target was: It should be lightweight and stable...
 
 Pictures of the components:
 
-![Raspberry Pi Zero WH](img/RaspiZero.jpg) ![Powerbank](img/Powerbank.jpg)
+{{< imgrow "img/RaspiZero.jpg" "img/Powerbank.jpg" >}}
 
-![RFID RC522](img/RFID_RC522.webp) ![DAC Zero](img/DACPZ.webp)
+{{< imgrow "img/RFID_RC522.webp" "img/DACPZ.webp" >}}
 
-![PAM8403](img/pam8403_amplifier.webp) ![Battery Expansion Shield](img/BatteryExpansionShield18650.webp)
+{{< imgrow "img/pam8403_amplifier.webp" "img/BatteryExpansionShield18650.webp" >}}
 
-![Arcade Buttons](img/Buttons.jpg)
+{{< img src="img/Buttons.jpg" alt="Arcade buttons 24mm" >}}
 
 > **Note:** I recommend a PowerBank with Pass-Through capability to charge and power the Pi simultaneously. Otherwise, you will need the Battery Expansion Shield.
 
@@ -90,7 +90,7 @@ Instead, finger joints proved to be ideal. Fortunately, there is a suitable plug
 
 Once the cube was finished, the positions for the wooden plates, buttons, power connector and base plate were added.
 
-![Fusion 360 Model](img/fusion360-box.png)
+{{< img src="img/fusion360-box.png" alt="Fusion 360 model" >}}
 
 The next step was to export all surfaces to Inkscape for further processing...
 
@@ -99,7 +99,7 @@ The next step was to export all surfaces to Inkscape for further processing...
 Once imported into Inkscape, all areas to be engraved were given the appropriate SVG graphics. For example:
 The front features a house with children playing, and the sides feature a sunflower encasing the speakers.
 
-![Front design](img/Vorn.svg) ![Side design](img/Seite.svg)
+{{< imgrow "img/Vorn.svg" "img/Seite.svg" >}}
 
 The challenging part here wasn't piecing the graphics together in Inkscape but finding the right graphics.
 
@@ -108,7 +108,7 @@ The challenging part here wasn't piecing the graphics together in Inkscape but f
 For this I used 6 mm cottonwood as the material. I set up everything with xTool's own software from Makerblock.
 It was very straightforward. The result (here already assembled):
 
-![Final box](img/box-final.jpg)
+{{< img src="img/box-final.jpg" alt="Final assembled box" >}}
 
 The only flaw was the dust the laser left (you can see it around the finger joints). I managed this a little later –
 you can read about it [here](/posts/air-assist-xtool-m1/).

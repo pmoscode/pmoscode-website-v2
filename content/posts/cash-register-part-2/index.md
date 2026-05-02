@@ -25,7 +25,7 @@ But in this case, this is exactly the behaviour I need...
 
 So, here is a picture of it:
 
-![RFID-Reader](img/rfid-reader.jpg)
+{{< img src="img/rfid-reader.jpg" alt="RFID reader" >}}
 
 If you connect it to USB, and type this in your terminal:
 
@@ -58,19 +58,19 @@ The Thermal Printer is a funny little thing. You can print almost "everything" i
 
 Here is how it looks:
 
-![Overview](img/tp-1.jpg)
+{{< img src="img/tp-1.jpg" alt="Thermal printer overview" >}}
 
 ### Wiring
 
 The printer came with a power adapter and a controller PCB. The PCB has a USB port, so it's possible to connect it there.
 
-![Connection](img/tp-3.jpg)
+{{< img src="img/tp-3.jpg" alt="USB connection on PCB" >}}
 
 But in my case, the USB didn't work. I couldn't figure out why and how to fix it.
 So, I used the direct connection to the printer (via the three wires – black, green and yellow). It's a serial connection, which is perfect for the Raspberry Pi.
 I also could wire it without the need to cut the wires:
 
-![Connection](img/tp-4.jpg)
+{{< img src="img/tp-4.jpg" alt="Direct serial connection" >}}
 
 ### Configuration
 
@@ -84,7 +84,7 @@ sudo nano /boot/config.txt
 ```
 At the bottom, last line, add the line `enable_uart=1`.
 
-![Via config.txt](img/sc-boot.png)
+{{< img src="img/sc-boot.png" alt="Via /boot/config.txt" >}}
 
 #### Via raspi-config
 
@@ -95,16 +95,16 @@ sudo raspi-config
 ```
 
 Go down to *Advanced Options*
-![Main menu](img/sc-config-1.png)
+{{< img src="img/sc-config-1.png" alt="raspi-config main menu" >}}
 
 Then go down to *Serial*
-![Advanced options](img/sc-config-2.png)
+{{< img src="img/sc-config-2.png" alt="Advanced options" >}}
 
 Then select *Yes*
-![Enable serial](img/sc-config-3.png)
+{{< img src="img/sc-config-3.png" alt="Enable serial" >}}
 
 It should be enabled now
-![Confirmation](img/sc-config-4.png)
+{{< img src="img/sc-config-4.png" alt="Serial enabled confirmation" >}}
 
 When it asks you to reboot, go to Yes, and you're done with the first configuration part.
 

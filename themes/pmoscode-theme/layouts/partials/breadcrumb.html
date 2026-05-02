@@ -1,9 +1,11 @@
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="{{ "/" | relURL }}">Home</a>
-  <span class="breadcrumb__sep">›</span>
   {{- range .Ancestors.Reverse }}
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  {{- if and (not .IsHome) (not (eq .Kind "section")) }}
   <span class="breadcrumb__sep">›</span>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
   {{- end }}
+  {{- end }}
+  <span class="breadcrumb__sep">›</span>
   <span>{{ .Title }}</span>
 </nav>

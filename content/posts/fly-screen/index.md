@@ -19,7 +19,7 @@ My answer: No. I will do it myself. So some measurements later…
 I had a plan how it could be done. The window size is 2.30 x 1.20 meters. It is divided into three parts: 0.60, 1.10, 0.60.
 My plan was to build it out of construction wood. So I measured the wood into two 2.30 and four 1.20 parts. The joints consist of overlapping wood.
 
-![Joints of fly screen](img/resized001.jpg "Joints of fly screen") ![Joints of fly screen](img/resized002.jpg "Joints of fly screen") ![Joints of fly screen](img/resized003.jpg "Joints of fly screen")
+{{< imgrow "img/resized001.jpg" "img/resized002.jpg" "img/resized003.jpg" >}}
 
 The wooden frame was glued together and tightened with screws. When this was done everything was painted brown.
 Now the main part of the fly screen had to be assembled.

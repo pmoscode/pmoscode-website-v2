@@ -27,7 +27,7 @@ Only the result I can show here. :(
 
 *French Cleat* is actually a very simple construction, which utilizes physics:
 
-![French cleat perspective view](img/F-Cleat-Perspektive.gif "French cleat perspective view") ![French cleat side view](img/F-Cleat-side.jpg "French cleat side view")
+{{< imgrow "img/F-Cleat-Perspektive.gif" "img/F-Cleat-side.jpg" >}}
 
 Due to the fact that the two *cleats*, i.e. the angled bars, wedge into one another, the whole thing is "bomb-proof".
 The physics – more precisely, the gravitational force – is in this case the "TNT".
@@ -52,7 +52,7 @@ After that, I had the idea that there should be two types of shoe shelves with d
 
 Now it's time to build these shelves:
 
-![Shelve](img/Regal.jpg "Shelve")
+{{< img src="img/Regal.jpg" alt="Shelf" >}}
 
 Therefor I needed per shelf:
 
@@ -61,7 +61,7 @@ Therefor I needed per shelf:
 
 I then put them together to form a shelf and finished with a cleat. The result: About 10 shelves with the two different widths.
 
-![Cleat](img/cleats.jpg "Cleat")
+{{< img src="img/cleats.jpg" alt="Cleat strips on wall" >}}
 
 But this is not the end of the flagpole. There will be other cleat elements:
 

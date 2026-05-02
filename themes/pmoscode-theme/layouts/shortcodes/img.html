@@ -1,0 +1,41 @@
+{{/*
+  img.html – Bild mit optionaler Ausrichtung und Text-Umfluss
+
+  Parameter:
+    src      – Bildpfad relativ zum Page Bundle (required)
+    align    – "left" | "right" | "center" (optional, default: block/center)
+    alt      – Alt-Text (optional)
+    caption  – Bildunterschrift (optional)
+
+  Beispiele:
+    {{< img src="img/foto.jpg" align="left" alt="Mein Foto" >}}
+    {{< img src="img/foto.jpg" align="right" caption="So sieht es aus" >}}
+    {{< img src="img/foto.jpg" >}}
+*/}}
+{{- $src     := .Get "src" -}}
+{{- $align   := .Get "align" | default "" -}}
+{{- $alt     := .Get "alt"   | default "" -}}
+{{- $caption := .Get "caption" | default "" -}}
+
+{{- $res := .Page.Resources.GetMatch $src -}}
+{{- if $res -}}
+  {{- $isSVG := eq (path.Ext $src | lower) ".svg" -}}
+  {{- if $isSVG -}}
+    <figure class="post-img{{ with $align }} post-img--{{ . }}{{ end }}">
+      <img src="{{ $res.RelPermalink }}" alt="{{ $alt }}" loading="lazy">
+      {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+  {{- else -}}
+    {{- $img := $res.Fit "900x900 webp" -}}
+    <figure class="post-img{{ with $align }} post-img--{{ . }}{{ end }}">
+      <img src="{{ $img.RelPermalink }}"
+           alt="{{ $alt }}"
+           width="{{ $img.Width }}"
+           height="{{ $img.Height }}"
+           loading="lazy">
+      {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+  {{- end -}}
+{{- else -}}
+  <p style="color:red;font-size:12px;">[img: '{{ $src }}' nicht gefunden]</p>
+{{- end -}}
