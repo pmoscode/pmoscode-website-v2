@@ -1,0 +1,9 @@
+name = "pmoscode-theme"
+license = "MIT"
+licenselink = ""
+description = "Custom theme for pmoscode website"
+homepage = "https://pmoscode.de"
+min_version = "0.120.0"
+
+[author]
+  name = "pmoscode"

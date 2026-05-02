@@ -1,0 +1,102 @@
+title = "pmoscode"
+theme = "pmoscode-theme"
+defaultContentLanguage = "de"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = "pmoscode – Code, Inspiration und mehr"
+  author = "pmoscode"
+  bio = "Hello, we're content creators fascinated by code, technology and lifestyle..."
+  copyrightYear = "2024"
+
+  # ── Giscus Comments ──────────────────────────────────────────────────────
+  # Anleitung:
+  #   1. GitHub Discussions im Repository aktivieren (Settings → Features → Discussions)
+  #   2. https://giscus.app aufrufen, Repo eingeben → Werte unten eintragen
+  #   3. repo_id + category_id bekommst du ausschließlich von giscus.app
+  # Solange repo_id leer ist, werden Kommentare nicht angezeigt.
+  [params.giscus]
+    repo          = ""          # z.B. "pmoscode/pmoscode-website-v2"
+    repo_id       = ""          # von giscus.app generiert
+    category      = "General"   # Name der Discussion-Kategorie
+    category_id   = ""          # von giscus.app generiert
+    mapping       = "pathname"  # Zuordnung: pathname | url | title | og:title
+    strict        = "0"
+    reactions     = "1"         # 👍-Reaktionen anzeigen
+    input_position = "bottom"   # Eingabefeld: top | bottom
+    theme         = "light"     # light | dark | preferred_color_scheme | ...
+    lang          = "de"
+
+  [params.contact]
+    phone = "+49-123-456789"
+    email = "hello@pmoscode.de"
+    location = "Germany"
+
+  [[params.social]]
+    name = "Facebook"
+    url  = "https://facebook.com"
+    icon = "facebook"
+  [[params.social]]
+    name = "Twitter"
+    url  = "https://twitter.com"
+    icon = "twitter"
+  [[params.social]]
+    name = "Instagram"
+    url  = "https://instagram.com"
+    icon = "instagram"
+  [[params.social]]
+    name = "Pinterest"
+    url  = "https://pinterest.com"
+    icon = "pinterest"
+  [[params.social]]
+    name = "YouTube"
+    url  = "https://youtube.com"
+    icon = "youtube"
+
+[menu]
+  [[menu.main]]
+    name       = "Home"
+    url        = "/"
+    weight     = 1
+  [[menu.main]]
+    name       = "Lifestyle"
+    url        = "/categories/lifestyle/"
+    weight     = 2
+  [[menu.main]]
+    name       = "Inspiration"
+    url        = "/categories/inspiration/"
+    weight     = 3
+  [[menu.main]]
+    name       = "Pages"
+    url        = "#"
+    weight     = 4
+    [menu.main.params]
+      hasChildren = true
+  [[menu.main]]
+    name       = "About"
+    url        = "/about/"
+    parent     = "Pages"
+    weight     = 1
+  [[menu.main]]
+    name       = "Contact"
+    url        = "/contact/"
+    parent     = "Pages"
+    weight     = 2
+  [[menu.main]]
+    name       = "Contact"
+    url        = "/contact/"
+    weight     = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home    = ["HTML"]
+  page    = ["HTML"]
+  section = ["HTML"]
+
+[pagination]
+  pagerSize = 5

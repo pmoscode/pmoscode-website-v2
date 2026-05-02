@@ -1,0 +1,37 @@
+{{/*
+  post-image.html
+  Lädt das Cover-Bild aus den Page Resources (Page Bundle).
+  Fällt auf einen SVG-Platzhalter zurück wenn kein Bild vorhanden.
+
+  Parameter (als dict übergeben):
+    page  – die Hugo-Page (required)
+    size  – Zielgröße für hugo image processing, z.B. "800x450" (optional)
+    class – CSS-Klasse für <img> / <svg> (optional, default: "card__img-placeholder")
+    alt   – Alt-Text (optional, default: page.Title)
+
+  Beispielaufruf:
+    {{ partial "post-image.html" (dict "page" . "size" "800x450" "class" "hero__featured-img") }}
+*/}}
+
+{{- $page  := .page -}}
+{{- $size  := .size  | default "800x webp" -}}
+{{- $class := .class | default "card__img-placeholder" -}}
+{{- $alt   := .alt   | default $page.Title -}}
+
+{{- $cover := $page.Resources.GetMatch "cover.*" -}}
+{{- if $cover -}}
+  {{- $img := $cover.Resize $size -}}
+  <img src="{{ $img.RelPermalink }}"
+       alt="{{ $alt }}"
+       class="{{ $class }}"
+       width="{{ $img.Width }}"
+       height="{{ $img.Height }}"
+       loading="lazy">
+{{- else -}}
+  <svg class="{{ $class }}" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" aria-label="{{ $alt }}">
+    <rect width="800" height="450" fill="#c9d6df"/>
+    <circle cx="400" cy="175" r="95" fill="#88a2b3"/>
+    <rect x="160" y="300" width="480" height="18" rx="5" fill="#7895a8"/>
+    <rect x="240" y="330" width="320" height="14" rx="4" fill="#98afbe"/>
+  </svg>
+{{- end -}}

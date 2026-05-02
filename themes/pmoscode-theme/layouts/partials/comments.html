@@ -1,0 +1,25 @@
+{{- $g := .Site.Params.giscus -}}
+{{- if and $g $g.repo_id $g.repo $g.category_id -}}
+<section class="comments">
+  <h3 class="section-title">Kommentare</h3>
+  {{- partial "wave-divider.html" . }}
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ $g.repo }}"
+    data-repo-id="{{ $g.repo_id }}"
+    data-category="{{ $g.category | default "General" }}"
+    data-category-id="{{ $g.category_id }}"
+    data-mapping="{{ $g.mapping | default "pathname" }}"
+    data-strict="{{ $g.strict | default "0" }}"
+    data-reactions-enabled="{{ $g.reactions | default "1" }}"
+    data-emit-metadata="0"
+    data-input-position="{{ $g.input_position | default "bottom" }}"
+    data-theme="{{ $g.theme | default "light" }}"
+    data-lang="{{ $g.lang | default "de" }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript>
+    Bitte aktiviere JavaScript, um die Kommentare zu laden.
+  </noscript>
+</section>
+{{- end -}}

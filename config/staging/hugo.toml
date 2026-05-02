@@ -1,0 +1,8 @@
+baseURL = "https://pmoscode.github.io/pmoscode-website-v2/"
+environment = "staging"
+buildDrafts = false
+buildFuture = false
+
+[params]
+  env = "staging"
+  debug = false

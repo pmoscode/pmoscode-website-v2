@@ -1,0 +1,23 @@
+<div class="widget widget-slider">
+  <h3 class="widget__title">Celebration</h3>
+  {{- partial "wave-divider.html" . }}
+  <div class="widget-slider__nav">
+    <button class="widget-slider__btn" aria-label="Previous">‹</button>
+    <button class="widget-slider__btn" aria-label="Next">›</button>
+  </div>
+  {{- $featured := first 1 .Site.RegularPages }}
+  {{- range $featured }}
+  <div class="card card--overlay">
+    <div class="card__img-wrap">
+      {{- partial "post-image.html" (dict "page" . "size" "400x270 webp") }}
+      <div class="card__overlay">
+        <span class="pill pill--primary" style="margin-bottom:8px;display:inline-block;">
+          {{- with index .Params.categories 0 }}{{ . }}{{ else }}Featured{{ end }}
+        </span>
+        <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div class="card__meta">{{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 Jan 2006" }}</div>
+      </div>
+    </div>
+  </div>
+  {{- end }}
+</div>

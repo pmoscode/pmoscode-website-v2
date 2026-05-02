@@ -1,0 +1,8 @@
+baseURL = "https://pmoscode.de/"
+environment = "production"
+buildDrafts = false
+buildFuture = false
+
+[params]
+  env = "production"
+  debug = false

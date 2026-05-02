@@ -1,0 +1,22 @@
+<div class="widget">
+  <h3 class="widget__title">Popular Posts</h3>
+  {{- partial "wave-divider.html" . }}
+  <div class="popular-list">
+    {{- $pages := first 3 (sort .Site.RegularPages "Params.weight" "asc") }}
+    {{- if not $pages }}
+      {{- $pages = first 3 .Site.RegularPages }}
+    {{- end }}
+    {{- range $i, $p := $pages }}
+    <div class="popular-item">
+      <div class="popular-item__num">{{ add $i 1 }}</div>
+      <div class="popular-item__img">
+        {{- partial "post-image.html" (dict "page" $p "size" "60x50 webp") }}
+      </div>
+      <div>
+        <div class="popular-item__title"><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></div>
+        <div class="popular-item__date">{{ $p.Date.Format "02 Jan 2006" }}</div>
+      </div>
+    </div>
+    {{- end }}
+  </div>
+</div>

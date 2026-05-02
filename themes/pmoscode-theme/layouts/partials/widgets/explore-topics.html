@@ -1,0 +1,26 @@
+<div class="widget">
+  <h3 class="widget__title">Explore Topics</h3>
+  {{- partial "wave-divider.html" . }}
+  <div class="topic-list">
+    {{- range .Site.Taxonomies.categories.ByCount }}
+    <div class="topic-item">
+      <a href="{{ .Page.Permalink }}">
+        <span class="topic-item__arrow">›</span>
+        {{ .Page.Title }}
+      </a>
+      <span class="topic-item__count">({{ .Count }})</span>
+    </div>
+    {{- else }}
+    {{- $cats := slice "Lifestyle" "Inspiration" "Fashion" "Trending" "Culture" }}
+    {{- range $cats }}
+    <div class="topic-item">
+      <a href="#">
+        <span class="topic-item__arrow">›</span>
+        {{ . }}
+      </a>
+      <span class="topic-item__count">(–)</span>
+    </div>
+    {{- end }}
+    {{- end }}
+  </div>
+</div>

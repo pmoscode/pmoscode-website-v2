@@ -1,0 +1,14 @@
+<div class="widget">
+  <h3 class="widget__title">Tag Clouds</h3>
+  {{- partial "wave-divider.html" . }}
+  <div class="tag-cloud">
+    {{- range .Site.Taxonomies.tags }}
+    <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>
+    {{- else }}
+    {{- $tags := slice "Trending" "Lifestyle" "Inspiration" "Fashion" "Culture" "Technology" "Design" "Travel" }}
+    {{- range $tags }}
+    <a href="#">#{{ . }}</a>
+    {{- end }}
+    {{- end }}
+  </div>
+</div>

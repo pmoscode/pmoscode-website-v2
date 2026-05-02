@@ -1,0 +1,13 @@
+<div class="contact-form">
+  <h2 class="section-title">Send Message</h2>
+  {{- partial "wave-divider.html" . }}
+  <form action="https://formspree.io/f/XXXXXX" method="POST">
+    <div class="form-row">
+      <input type="text"  name="name"    placeholder="Your name"      required>
+      <input type="email" name="email"   placeholder="Email address"  required>
+    </div>
+    <input class="contact-form--single" type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your message here..." rows="5" required></textarea>
+    <button class="btn btn--primary" type="submit">Submit Message</button>
+  </form>
+</div>
