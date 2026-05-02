@@ -1100,67 +1100,162 @@ a:hover { color: var(--primary); }
 }
 .post-lastmod time { font-weight: 600; color: var(--text); }
 
-/* ---------- Search Page ---------- */
-.search-page {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 40px 20px;
+/* ---------- Search Overlay ---------- */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s ease, visibility .2s ease;
 }
-.search-page__input-wrap {
-  position: relative;
-  margin-bottom: 32px;
+.search-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
 }
-.search-page__icon {
+body.search-open { overflow: hidden; }
+.search-overlay__backdrop {
   position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+  inset: 0;
+  background: rgba(0,0,0,.55);
+}
+.search-overlay__panel {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 640px;
+  max-height: calc(100vh - 120px);
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-16px);
+  transition: transform .2s ease;
+}
+.search-overlay.is-open .search-overlay__panel { transform: translateY(0); }
+.search-overlay__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.search-overlay__input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-overlay__icon {
+  position: absolute;
+  left: 12px;
   color: var(--meta);
   pointer-events: none;
+  flex-shrink: 0;
 }
-.search-page__input {
+.search-overlay__input {
   width: 100%;
-  padding: 12px 16px 12px 48px;
+  padding: 9px 12px 9px 40px;
   font-size: 16px;
   font-family: var(--font-body);
   border: 2px solid var(--border);
   border-radius: var(--radius-pill);
+  background: var(--bg-light);
   outline: none;
-  transition: border-color .2s;
+  transition: border-color .2s, background .2s;
 }
-.search-page__input:focus { border-color: var(--primary); }
-.search-page__results { display: flex; flex-direction: column; gap: 16px; }
-.search-page__empty { color: var(--meta); font-size: 14px; }
+.search-overlay__input:focus { border-color: var(--primary); background: var(--white); }
+.search-overlay__close {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: var(--meta);
+  background: var(--bg-light);
+  transition: background .2s, color .2s;
+}
+.search-overlay__close:hover { background: var(--border); color: var(--dark); }
+.search-overlay__results {
+  overflow-y: auto;
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.search-overlay__empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--meta);
+  font-size: 14px;
+}
+.search-overlay__footer {
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--meta);
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.search-overlay__footer kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: var(--font-body);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-light);
+  color: var(--text);
+}
+/* Search results (shared with overlay) */
 .search-result {
   display: block;
-  padding: 20px;
+  padding: 14px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   background: var(--white);
-  transition: border-color .2s, box-shadow .2s;
+  transition: border-color .15s, background .15s;
 }
-.search-result:hover {
-  border-color: var(--primary);
-  box-shadow: 0 2px 12px rgba(0,0,0,.08);
-}
+.search-result:hover { border-color: var(--primary); background: var(--bg-light); }
 .search-result__title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .search-result__meta {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--meta);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .search-result__summary {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text);
   line-height: 1.5;
+}
+/* Responsive: full-screen on mobile */
+@media (max-width: 600px) {
+  .search-overlay {
+    padding-top: 0;
+    align-items: stretch;
+  }
+  .search-overlay__panel {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+  .search-overlay__footer { display: none; }
 }
 
 /* ---------- Download Card ---------- */
