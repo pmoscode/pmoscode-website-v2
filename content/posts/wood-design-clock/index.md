@@ -1,0 +1,56 @@
++++
+title        = "Wood Design Clock"
+date         = 2020-01-15
+author       = "pmoscode"
+description  = "DIY a wooden clock out of old shelves"
+categories   = ["Woodwork"]
+tags         = ["house", "gift"]
+featured     = false
+editors_pick = true
+trending     = false
+inspiration  = true
+summary      = "For my darling's birthday I built a unique wall clock from old weathered shelves. Wire-brushed wood, chiselled hour markers, heart cut-outs – and one happy recipient."
++++
+
+For my darling's birthday, I had a very special present in mind.
+It should be something original and functional.
+
+With the two specifications I started looking for inspiration – on the internet, of course. :)
+
+After getting inspired enough, I came up with a wall clock.
+I found a similar clock on the internet that I wanted to build with some modification.
+
+It should consist of the following elements:
+
+- A background plate
+- The clock surface, which should be given a prominent structure
+- Unsophisticated hour markers and
+- Something special on the side
+
+This prominent surface was now the challenge.
+Fortunately, I found some old shelves from the previous owner of the house in my workshop.
+These were in a very old condition – caused by the time and the weather.
+
+To give the surface a prominent appearance, I also treated it with a wire brush.
+This created a "canyon look" in the grain.
+In the end, the clock surface consisted of a total of three boards, which I finally glued and oiled.
+
+**(1)** The position of the hour markers was determined and marked with the aid of a circle.
+In the centre there was also the hole for the hands.
+
+**(2)** The hour markings have been removed a few millimeters from the wood with a chisel.
+This created layer was finally painted white.
+
+**(3)** Because I got only hands which were painted black (except the one for the seconds, which was already red), I had to repaint them white.
+
+**(4)** Finally, I saw out four hearts from plywood – two larger and two smaller ones – that were also glued to the surface of the clock, also with spacers.
+
+**(5)** The background plate was a common multiplex plate, in which a hole was sawn in the place of the clockwork.
+
+Spacers were glued between the surface of the clock and the background plate, which should provide an impression of depth.
+
+So this little project was finished. My darling was very happy about it... :)
+
+Here is an overview of the single parts:
+
+![Parts](img/parts.png)

@@ -4,12 +4,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- Dropdown Menu ---------- */
   document.querySelectorAll('.site-nav__item--dropdown').forEach(function (item) {
-    item.addEventListener('click', function (e) {
-      const link = item.querySelector('.site-nav__link');
-      if (e.target === link || link.contains(e.target)) {
-        e.preventDefault();
-        item.classList.toggle('open');
-      }
+    var hideTimer;
+
+    item.addEventListener('mouseenter', function () {
+      clearTimeout(hideTimer);
+      item.classList.add('open');
+    });
+
+    item.addEventListener('mouseleave', function () {
+      hideTimer = setTimeout(function () {
+        item.classList.remove('open');
+      }, 120);
+    });
+
+    // Click toggle for keyboard / touch
+    item.querySelector('.site-nav__link').addEventListener('click', function (e) {
+      e.preventDefault();
+      item.classList.toggle('open');
     });
   });
   document.addEventListener('click', function (e) {

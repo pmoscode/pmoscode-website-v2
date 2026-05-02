@@ -1,9 +1,8 @@
 {{- define "main" }}
-<div class="page-wrap page-wrap--sidebar">
-<div>
+<div class="page-wrap page-wrap--home">
 
-  {{- /* ── Hero ─────────────────────────────── */}}
-  <section class="hero">
+  {{- /* ── Hero (full width, spans both columns) ────── */}}
+  <section class="hero hero--full">
     <div class="hero__grid">
 
       {{- /* Featured Post */}}
@@ -30,7 +29,6 @@
           <button class="tab-btn active" data-tab="popular">Popular</button>
           <button class="tab-btn" data-tab="recent">Recent</button>
         </div>
-
         <div class="tab-panel active" data-panel="popular">
           {{- range first 4 .Site.RegularPages }}
           <div class="card card--mini">
@@ -44,7 +42,6 @@
           </div>
           {{- end }}
         </div>
-
         <div class="tab-panel" data-panel="recent">
           {{- range first 4 (sort .Site.RegularPages "Date" "desc") }}
           <div class="card card--mini">
@@ -63,162 +60,129 @@
     </div>
   </section>
 
-  {{- /* ── Editor's Pick ──────────────────── */}}
-  <section class="editors-pick">
-    <h2 class="section-title">Editor's Pick</h2>
-    {{- partial "wave-divider.html" . }}
-    {{- $picks := where .Site.RegularPages "Params.editors_pick" true }}
-    {{- if not $picks }}{{ $picks = first 4 .Site.RegularPages }}{{ end }}
-    <div class="editors-pick__grid">
+  {{- /* ── Main content ─────────────────────────────── */}}
+  <div class="home-main">
 
-      {{- /* Main large card */}}
-      {{- $main := index $picks 0 }}
-      {{- with $main }}
-      <div class="card editors-pick__main">
-        {{- partial "post-image.html" (dict "page" . "size" "800x530 webp") }}
-        <div class="card__body">
-          <span class="pill pill--primary" style="margin-bottom:10px;">
-            {{- with index .Params.categories 0 }}{{ . }}{{ else }}Editor's Pick{{ end }}
-          </span>
-          <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-          <div class="card__meta">
-            By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
-          </div>
-          <p class="card__summary">{{ .Summary | truncate 120 }}</p>
-        </div>
-      </div>
+    {{- /* ── Editor's Pick ──────────────────── */}}
+    <section class="editors-pick">
+      <h2 class="section-title">Editor's Pick</h2>
+      {{- partial "wave-divider.html" . }}
+
+      {{- $picks := slice }}
+      {{- range $.Site.Params.editors_pick }}
+        {{- $p := $.Site.GetPage (printf "/posts/%s" .) }}
+        {{- if $p }}{{ $picks = $picks | append $p }}{{ end }}
       {{- end }}
+      {{- if not $picks }}{{ $picks = first 5 .Site.RegularPages }}{{ end }}
 
-      {{- /* Stack of small cards */}}
-      <div class="editors-pick__stack">
-        {{- range after 1 $picks | first 3 }}
-        <div class="card card--h">
-          <div class="card__img-wrap">
-            {{- partial "post-image.html" (dict "page" . "size" "120x90 webp") }}
+      <div class="editors-pick__grid">
+
+        {{- /* Großes Hauptbild — Kategorie-Pill oben links auf dem Bild */}}
+        {{- with index $picks 0 }}
+        <div class="card editors-pick__main">
+          <div class="card__img-wrap card__img-wrap--labeled">
+            {{- partial "post-image.html" (dict "page" . "size" "800x530 webp") }}
+            <span class="card__img-label pill pill--primary">
+              {{- with index .Params.categories 0 }}{{ . }}{{ else }}Editor's Pick{{ end }}
+            </span>
           </div>
           <div class="card__body">
-            <span class="pill pill--primary" style="margin-bottom:6px;font-size:10px;">
-              {{- with index .Params.categories 0 }}{{ . }}{{ else }}Pick{{ end }}
-            </span>
             <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-            <div class="card__meta">{{ .Date.Format "02 January 2006" }}</div>
+            <div class="card__meta">
+              By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
+            </div>
+            <p class="card__summary">{{ .Summary | truncate 120 }}</p>
+          </div>
+        </div>
+        {{- end }}
+
+        {{- /* 4 kleine Karten als 1×4 Stapel — ohne Kategorie */}}
+        <div class="editors-pick__stack">
+          {{- range after 1 $picks | first 4 }}
+          <div class="card card--h">
+            <div class="card__img-wrap">
+              {{- partial "post-image.html" (dict "page" . "size" "120x90 webp") }}
+            </div>
+            <div class="card__body">
+              <div class="card__title" style="font-size:15px;"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+              <div class="card__meta">{{ .Date.Format "02 January 2006" }}</div>
+            </div>
+          </div>
+          {{- end }}
+        </div>
+
+      </div>
+    </section>
+
+    {{- /* ── Top Kategorien (ersetzt Trending + Inspiration) ── */}}
+    {{- range first 3 .Site.Taxonomies.categories.ByCount }}
+    <section class="cat-section">
+      <div class="cat-section__header">
+        <div>
+          <h2 class="section-title">{{ .Page.Title }}</h2>
+          {{- partial "wave-divider.html" $ }}
+        </div>
+        <a class="cat-section__more" href="{{ .Page.Permalink }}">Alle anzeigen →</a>
+      </div>
+      <div class="cat-section__grid">
+        {{- range first 2 .Pages }}
+        <div class="card">
+          <div class="card__img-wrap">
+            {{- partial "post-image.html" (dict "page" . "size" "600x380 webp") }}
+          </div>
+          <div class="card__body">
+            <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+            <div class="card__meta">
+              By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
+            </div>
+            <p class="card__summary">{{ .Summary | truncate 100 }}</p>
           </div>
         </div>
         {{- end }}
       </div>
-
-    </div>
-  </section>
-
-  {{- /* ── Trending ─────────────────────── */}}
-  <section class="trending">
-    <h2 class="section-title">Trending</h2>
-    {{- partial "wave-divider.html" . }}
-    {{- $trending := where .Site.RegularPages "Params.trending" true }}
-    {{- if not $trending }}{{ $trending = first 6 .Site.RegularPages }}{{ end }}
-
-    <div class="trending__top">
-      {{- range first 2 $trending }}
-      <div class="card">
-        {{- partial "post-image.html" (dict "page" . "size" "600x350 webp") }}
-        <div class="card__body">
-          <span class="pill pill--primary" style="margin-bottom:8px;">
-            {{- with index .Params.categories 0 }}{{ . }}{{ else }}Trending{{ end }}
-          </span>
-          <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-          <div class="card__meta">
-            By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
-          </div>
-          <p class="card__summary">{{ .Summary | truncate 100 }}</p>
-        </div>
-      </div>
-      {{- end }}
-    </div>
-
-    <div class="trending__bottom">
-      {{- range after 2 $trending | first 4 }}
-      <div class="card">
-        {{- partial "post-image.html" (dict "page" . "size" "400x250 webp") }}
-        <div class="card__body">
-          <div class="card__title" style="font-size:14px;"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-          <div class="card__meta">{{ .Date.Format "02 Jan 2006" }}</div>
-        </div>
-      </div>
-      {{- end }}
-    </div>
-  </section>
-
-  {{- /* ── Inspiration ──────────────────── */}}
-  <section class="inspiration">
-    <div class="inspiration__header">
-      <div>
-        <h2 class="section-title">Inspiration</h2>
-        {{- partial "wave-divider.html" . }}
-      </div>
-      <div class="inspiration__nav">
-        <button aria-label="Previous">‹</button>
-        <button aria-label="Next">›</button>
-      </div>
-    </div>
-    {{- $inspo := where .Site.RegularPages "Params.inspiration" true }}
-    {{- if not $inspo }}{{ $inspo = first 2 .Site.RegularPages }}{{ end }}
-    <div class="inspiration__grid">
-      {{- range first 2 $inspo }}
-      <div class="card card--overlay">
-        <div class="card__img-wrap">
-          {{- partial "post-image.html" (dict "page" . "size" "700x470 webp") }}
-          <div class="card__overlay">
-            <span class="pill pill--primary" style="margin-bottom:8px;display:inline-block;">
-              {{- with index .Params.categories 0 }}{{ . }}{{ else }}Inspiration{{ end }}
-            </span>
-            <div class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-            <div class="card__meta">By {{ .Params.author | default $.Site.Params.author }}</div>
-          </div>
-        </div>
-      </div>
-      {{- end }}
-    </div>
-  </section>
-
-  {{- /* ── Latest Posts ─────────────────── */}}
-  <section class="latest-posts">
-    <h2 class="section-title">Latest Posts</h2>
-    {{- partial "wave-divider.html" . }}
-
-    <div class="latest-list">
-      {{- range .Paginator.Pages }}
-      <article class="latest-item">
-        <div class="latest-item__img">
-          {{- partial "post-image.html" (dict "page" . "size" "400x300 webp") }}
-        </div>
-        <div class="latest-item__body">
-          <div class="latest-item__meta">
-            <span class="pill pill--primary">
-              {{- with index .Params.categories 0 }}{{ . }}{{ else }}Post{{ end }}
-            </span>
-            <span style="font-size:12px;color:var(--meta);">
-              By {{ .Params.author | default $.Site.Params.author }}
-            </span>
-            <span style="font-size:12px;color:var(--meta);">{{ .Date.Format "02 January 2006" }}</span>
-          </div>
-          <div class="latest-item__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-          <p class="latest-item__summary">{{ .Summary | truncate 160 }}</p>
-        </div>
-      </article>
-      {{- end }}
-    </div>
-
-    {{- /* Pagination */}}
-    {{- if gt .Paginator.TotalPages 1 }}
-    <div class="loadmore">
-      {{- if .Paginator.HasNext }}
-      <a class="btn btn--outline" href="{{ .Paginator.Next.URL }}">Load More</a>
-      {{- end }}
-    </div>
+    </section>
     {{- end }}
-  </section>
 
-</div>
-{{- partial "sidebar.html" . }}
+    {{- /* ── Latest Posts ─────────────────── */}}
+    <section class="latest-posts">
+      <h2 class="section-title">Latest Posts</h2>
+      {{- partial "wave-divider.html" . }}
+
+      <div class="latest-list">
+        {{- range .Paginator.Pages }}
+        <article class="latest-item">
+          <div class="latest-item__img">
+            {{- partial "post-image.html" (dict "page" . "size" "400x300 webp") }}
+          </div>
+          <div class="latest-item__body">
+            <div class="latest-item__meta">
+              <span class="pill pill--primary">
+                {{- with index .Params.categories 0 }}{{ . }}{{ else }}Post{{ end }}
+              </span>
+              <span style="font-size:12px;color:var(--meta);">
+                By {{ .Params.author | default $.Site.Params.author }}
+              </span>
+              <span style="font-size:12px;color:var(--meta);">{{ .Date.Format "02 January 2006" }}</span>
+            </div>
+            <div class="latest-item__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+            <p class="latest-item__summary">{{ .Summary | truncate 160 }}</p>
+          </div>
+        </article>
+        {{- end }}
+      </div>
+
+      {{- if gt .Paginator.TotalPages 1 }}
+      <div class="loadmore">
+        {{- if .Paginator.HasNext }}
+        <a class="btn btn--outline" href="{{ .Paginator.Next.URL }}">Load More</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </section>
+
+  </div>{{- /* end .home-main */}}
+
+  {{- partial "sidebar.html" . }}
+
 </div>
 {{- end }}

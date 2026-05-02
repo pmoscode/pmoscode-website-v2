@@ -20,7 +20,7 @@
 
 {{- $cover := $page.Resources.GetMatch "cover.*" -}}
 {{- if $cover -}}
-  {{- $img := $cover.Resize $size -}}
+  {{- $img := $cover.Fit $size -}}
   <img src="{{ $img.RelPermalink }}"
        alt="{{ $alt }}"
        class="{{ $class }}"

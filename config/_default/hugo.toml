@@ -10,6 +10,15 @@ enableGitInfo = false
   bio = "Hello, we're content creators fascinated by code, technology and lifestyle..."
   copyrightYear = "2024"
 
+  # 5 Post-Slugs für den Editor's Pick Block (Reihenfolge: 1 groß + 4 klein)
+  editors_pick = [
+    "french-cleat-system",
+    "air-assist-xtool-m1",
+    "pi-cam-holder",
+    "wood-design-clock",
+    "last-pixel-standing-game",
+  ]
+
   # ── Giscus Comments ──────────────────────────────────────────────────────
   # Anleitung:
   #   1. GitHub Discussions im Repository aktivieren (Settings → Features → Discussions)
@@ -34,25 +43,25 @@ enableGitInfo = false
     location = "Germany"
 
   [[params.social]]
-    name = "Facebook"
-    url  = "https://facebook.com"
-    icon = "facebook"
+    name = "GitHub"
+    url  = "https://github.com/pmoscode"
+    icon = "github"
   [[params.social]]
-    name = "Twitter"
-    url  = "https://twitter.com"
-    icon = "twitter"
+    name = "Medium"
+    url  = "https://medium.com/@info_26971"
+    icon = "medium"
   [[params.social]]
-    name = "Instagram"
-    url  = "https://instagram.com"
-    icon = "instagram"
+    name = "Substack"
+    url  = "https://pmoscode.substack.com/"
+    icon = "substack"
   [[params.social]]
-    name = "Pinterest"
-    url  = "https://pinterest.com"
-    icon = "pinterest"
+    name = "Tumblr"
+    url  = "https://www.tumblr.com/blog/pmoscode"
+    icon = "tumblr"
   [[params.social]]
-    name = "YouTube"
-    url  = "https://youtube.com"
-    icon = "youtube"
+    name = "Bluesky"
+    url  = "https://bsky.app/profile/pmoscode.bsky.social"
+    icon = "bluesky"
 
 [menu]
   [[menu.main]]
