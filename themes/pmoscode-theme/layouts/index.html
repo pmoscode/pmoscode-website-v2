@@ -27,7 +27,7 @@
       {{- /* Popular Posts */}}
       <div class="hero__popular">
         <h3 class="hero__popular-title">Popular</h3>
-        {{- partial "wave-divider.html" . }}
+        {{- partial "wave-divider.html" "" }}
         {{- range first 4 $posts }}
         <div class="card card--mini">
           <div class="card__img-wrap">
@@ -50,7 +50,7 @@
     {{- /* ── Editor's Pick ──────────────────── */}}
     <section class="editors-pick">
       <h2 class="section-title">Editor's Pick</h2>
-      {{- partial "wave-divider.html" . }}
+      {{- partial "wave-divider.html" "" }}
 
       {{- $picks := slice }}
       {{- range $.Site.Params.editors_pick }}
@@ -106,7 +106,7 @@
       <div class="cat-section__header">
         <div>
           <h2 class="section-title">{{ .Page.Title }}</h2>
-          {{- partial "wave-divider.html" $ }}
+          {{- partial "wave-divider.html" .Page.Title }}
         </div>
         <a class="cat-section__more" href="{{ .Page.Permalink }}">Alle anzeigen →</a>
       </div>
@@ -149,7 +149,7 @@
     {{- /* ── Latest Posts ─────────────────── */}}
     <section class="latest-posts">
       <h2 class="section-title">Latest Posts</h2>
-      {{- partial "wave-divider.html" . }}
+      {{- partial "wave-divider.html" "" }}
 
       {{- $pager := .Paginate $posts }}
       <div class="latest-posts__box">

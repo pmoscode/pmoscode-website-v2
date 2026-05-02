@@ -9,12 +9,8 @@
     <h1 class="single-post__title">{{ .Title }}</h1>
     <div class="single-post__meta">
       <div class="single-post__avatar">
-        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-          <rect width="36" height="36" fill="#c9d6df" rx="18"/>
-          <circle cx="18" cy="13" r="7" fill="#88a2b3"/>
-          <ellipse cx="18" cy="29" rx="11" ry="7" fill="#88a2b3"/>
-        </svg>
-      </div>
+          <img src="/img/avatar.png" alt="{{ .Site.Params.author }}">
+        </div>
       <span>{{ .Params.author | default .Site.Params.author }}</span>
       {{- with index .Params.categories 0 }}
       <span class="pill pill--primary" style="font-size:11px;padding:3px 10px;">{{ . }}</span>

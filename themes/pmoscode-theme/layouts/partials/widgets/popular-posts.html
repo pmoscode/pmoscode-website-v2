@@ -1,6 +1,6 @@
 <div class="widget">
   <h3 class="widget__title">Popular Posts</h3>
-  {{- partial "wave-divider.html" . }}
+  {{- partial "wave-divider.html" "" }}
   <div class="popular-list">
     {{- $pages := first 3 (sort (where .Site.RegularPages "Section" "posts") "Params.weight" "asc") }}
     {{- if not $pages }}

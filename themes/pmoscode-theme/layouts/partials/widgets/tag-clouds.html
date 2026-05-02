@@ -1,6 +1,6 @@
 <div class="widget">
   <h3 class="widget__title">Tag Clouds</h3>
-  {{- partial "wave-divider.html" . }}
+  {{- partial "wave-divider.html" "" }}
   <div class="tag-cloud">
     {{- range .Site.Taxonomies.tags }}
     <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>

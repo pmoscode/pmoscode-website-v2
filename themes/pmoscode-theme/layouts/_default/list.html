@@ -5,9 +5,9 @@
     <div class="list-grid">
       {{- range .Pages }}
       <div class="card">
-        <div class="card__img-wrap">
+        <a class="card__img-wrap" href="{{ .Permalink }}">
           {{- partial "post-image.html" (dict "page" . "size" "600x350 webp") }}
-        </div>
+        </a>
         <div class="card__body">
           {{- with index .Params.categories 0 }}
           <span class="pill pill--primary" style="margin-bottom:8px;">{{ . }}</span>

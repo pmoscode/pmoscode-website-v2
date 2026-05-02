@@ -2,7 +2,7 @@
 {{- if and $g $g.repo_id $g.repo $g.category_id -}}
 <section class="comments">
   <h3 class="section-title">Kommentare</h3>
-  {{- partial "wave-divider.html" . }}
+  {{- partial "wave-divider.html" (index .Params.categories 0 | default "") }}
   <script src="https://giscus.app/client.js"
     data-repo="{{ $g.repo }}"
     data-repo-id="{{ $g.repo_id }}"
