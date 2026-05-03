@@ -2,7 +2,7 @@
   <div class="site-header__inner">
 
     {{- /* Logo */}}
-    <a class="site-logo" href="{{ "/" | relURL }}">
+    <a class="site-logo" href="{{ .Site.Home.RelPermalink }}">
       <img class="site-logo__img" src="{{ "img/avatar.png" | absURL }}" alt="{{ .Site.Title }} Logo">
       {{- .Site.Title -}}<span>.</span>
     </a>
