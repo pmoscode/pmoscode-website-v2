@@ -12,10 +12,11 @@ tasks:
 
   # ── Setup ──────────────────────────────────────────────────────────────────
   setup:
-    desc: "Projekt einrichten: Git LFS initialisieren + alle LFS-Dateien laden"
+    desc: "Projekt einrichten: Git LFS + Transcribe-Venv"
     cmds:
       - task: lfs:install
       - task: lfs:pull
+      - task: transcribe:setup
 
   # ── Development ────────────────────────────────────────────────────────────
   dev:
@@ -86,3 +87,36 @@ tasks:
           Git LFS ist nicht installiert oder nicht initialisiert.
             macOS:  brew install git-lfs
             Setup:  task setup
+
+  # ── Transcribe ─────────────────────────────────────────────────────────────
+  transcribe:setup:
+    desc: "Python-Venv für Transcribe einrichten + Abhängigkeiten installieren"
+    status:
+      - test -f transcribe/.venv/bin/python
+    cmds:
+      - python3.11 -m venv transcribe/.venv
+      - transcribe/.venv/bin/pip install --quiet --upgrade pip
+      - transcribe/.venv/bin/pip install --quiet --only-binary llvmlite llvmlite==0.45.1
+      - transcribe/.venv/bin/pip install --quiet -r transcribe/requirements.txt
+
+  transcribe:run:
+    desc: "Audio/Video transkribieren  →  task transcribe:run FILE=path/to/file.mp4"
+    requires:
+      vars: [FILE]
+    deps: [transcribe:verify]
+    vars:
+      MODEL: '{{.MODEL | default "large"}}'
+      LANG: '{{.LANG | default "de"}}'
+      FORMAT: '{{.FORMAT | default "txt"}}'
+    cmds:
+      - transcribe/.venv/bin/python transcribe/transcribe.py "{{.FILE}}" --model {{.MODEL}} --language {{.LANG}} --format {{.FORMAT}}
+
+  transcribe:verify:
+    desc: Prüfen ob Transcribe-Venv eingerichtet ist
+    internal: true
+    silent: true
+    preconditions:
+      - sh: test -f transcribe/.venv/bin/python
+        msg: |
+          Transcribe-Venv nicht gefunden.
+            Setup:  task transcribe:setup
