@@ -101,6 +101,9 @@ The front features a house with children playing, and the sides feature a sunflo
 
 {{< imgrow "img/Vorn.svg" "img/Seite.svg" >}}
 
+{{< download file="img/Vorn.svg" label="Front Panel (SVG)" >}}
+{{< download file="img/Seite.svg" label="Side Panel (SVG)" >}}
+
 The challenging part here wasn't piecing the graphics together in Inkscape but finding the right graphics.
 
 ### xTool M1

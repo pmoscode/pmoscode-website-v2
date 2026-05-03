@@ -1,10 +1,6 @@
 <div class="author-box">
   <div class="author-box__avatar">
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-      <rect width="80" height="80" fill="#c9d6df"/>
-      <circle cx="40" cy="30" r="14" fill="#98afbe"/>
-      <ellipse cx="40" cy="62" rx="22" ry="14" fill="#98afbe"/>
-    </svg>
+    <img src="{{ "img/avatar.png" | absURL }}" alt="{{ .Params.author | default .Site.Params.author }}">
   </div>
   <div>
     <div class="author-box__name">{{ .Params.author | default .Site.Params.author }}</div>

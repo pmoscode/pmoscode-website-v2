@@ -36,8 +36,6 @@ Again, some clicks later I found this:
 At the end I made a remix of prodals Raspi holder cam mount and nobikkos bed mount.
 So, if you want to print this you need the cam case from prodals Raspi holder.
 
-Here, the *[STL file](misc/Pi_Cam_Holder.stl)*
-
 Here the print from the old bumpy perspective:
 
 {{< video src="/mov/2020/pi_cam_holder/cam_holder.mp4" autoplay="false" >}}
@@ -47,6 +45,8 @@ Now, with the new Pi cam mount:
 {{< video src="/mov/2020/pi_cam_holder/result.mp4" autoplay="false" >}}
 
 Doesn't look bumpy at all now...
+
+{{< download file="misc/Pi_Cam_Holder.stl" label="Pi Cam Holder" >}}
 
 Here is the Pi cam holder on:
 
