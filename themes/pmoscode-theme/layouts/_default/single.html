@@ -9,7 +9,7 @@
     <h1 class="single-post__title">{{ .Title }}</h1>
     <div class="single-post__meta">
       <div class="single-post__avatar">
-          <img src="/img/avatar.png" alt="{{ .Site.Params.author }}">
+          <img src="{{ "img/avatar.png" | absURL }}" alt="{{ .Site.Params.author }}">
         </div>
       <span>{{ .Params.author | default .Site.Params.author }}</span>
       {{- with index .Params.categories 0 }}
