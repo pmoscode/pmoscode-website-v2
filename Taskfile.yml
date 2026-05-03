@@ -65,6 +65,11 @@ tasks:
     cmds:
       - git lfs pull
 
+  lfs:push:
+    desc: Alle LFS-Objekte explizit zum Remote hochladen (nach History-Rewrite o.ä.)
+    cmds:
+      - git lfs push --all origin
+
   lfs:status:
     desc: Status aller LFS-Dateien anzeigen
     cmds:
