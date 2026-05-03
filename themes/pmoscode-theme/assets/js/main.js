@@ -3,19 +3,22 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- Dropdown Menu ---------- */
+  var canHover = window.matchMedia('(hover: hover)').matches;
+
   document.querySelectorAll('.site-nav__item--dropdown').forEach(function (item) {
     var hideTimer;
 
-    item.addEventListener('mouseenter', function () {
-      clearTimeout(hideTimer);
-      item.classList.add('open');
-    });
-
-    item.addEventListener('mouseleave', function () {
-      hideTimer = setTimeout(function () {
-        item.classList.remove('open');
-      }, 120);
-    });
+    if (canHover) {
+      item.addEventListener('mouseenter', function () {
+        clearTimeout(hideTimer);
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function () {
+        hideTimer = setTimeout(function () {
+          item.classList.remove('open');
+        }, 120);
+      });
+    }
 
     // Click toggle for keyboard / touch
     item.querySelector('.site-nav__link').addEventListener('click', function (e) {

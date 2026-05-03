@@ -4,39 +4,27 @@
 
   {{- /* ── Hero (full width, spans both columns) ────── */}}
   <section class="hero hero--full">
-    <div class="hero__grid">
 
-      {{- /* Featured Post */}}
-      <div class="hero__featured">
-        {{- $featured := first 1 (where $posts "Params.featured" true) }}
-        {{- if not $featured }}{{ $featured = first 1 $posts }}{{ end }}
-        {{- range $featured }}
-        <a class="hero__featured-link" href="{{ .Permalink }}">
-          {{- partial "post-image.html" (dict "page" . "size" "900x675 webp" "class" "hero__featured-img") }}
-        </a>
-        <div class="hero__featured-overlay">
-          <span class="pill pill--primary">
-            {{- with index .Params.categories 0 }}{{ . }}{{ else }}Featured{{ end }}
-          </span>
-          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-          <div class="hero__featured-meta">
-            By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
-          </div>
-        </div>
-        {{- end }}
-      </div>
-
-      {{- /* Brand Box */}}
-      <div class="hero__brand">
-        <div class="widget widget-brand">
-          <img class="widget-brand__avatar" src="/img/avatar.png" alt="{{ .Site.Title }} Logo">
-          <div class="widget-brand__logo">{{ .Site.Title }}<span>.</span></div>
-          <p class="widget-brand__bio">{{ .Site.Params.bio }}</p>
-          {{- partial "social-icons.html" . }}
+    {{- /* Featured Post */}}
+    <div class="hero__featured">
+      {{- $featured := first 1 (where $posts "Params.featured" true) }}
+      {{- if not $featured }}{{ $featured = first 1 $posts }}{{ end }}
+      {{- range $featured }}
+      <a class="hero__featured-link" href="{{ .Permalink }}">
+        {{- partial "post-image.html" (dict "page" . "size" "900x675 webp" "class" "hero__featured-img") }}
+      </a>
+      <div class="hero__featured-overlay">
+        <span class="pill pill--primary">
+          {{- with index .Params.categories 0 }}{{ . }}{{ else }}Featured{{ end }}
+        </span>
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="hero__featured-meta">
+          By {{ .Params.author | default $.Site.Params.author }} · {{ .Date.Format "02 January 2006" }}
         </div>
       </div>
-
+      {{- end }}
     </div>
+
   </section>
 
   {{- /* ── Main content ─────────────────────────────── */}}
@@ -146,10 +134,9 @@
       <h2 class="section-title">Latest Posts</h2>
       {{- partial "wave-divider.html" "" }}
 
-      {{- $pager := .Paginate $posts }}
       <div class="latest-posts__box">
         <div class="latest-list">
-          {{- range $pager.Pages }}
+          {{- range first 5 $posts }}
           <article class="latest-item">
             <a class="latest-item__img" href="{{ .Permalink }}">
               {{- partial "post-image.html" (dict "page" . "size" "400x300 webp") }}
@@ -168,11 +155,9 @@
           {{- end }}
         </div>
 
-        {{- if gt $pager.TotalPages 1 }}
+        {{- if gt (len $posts) 5 }}
         <div class="loadmore">
-          {{- if $pager.HasNext }}
-          <a class="btn btn--outline" href="{{ $pager.Next.URL }}">Load More</a>
-          {{- end }}
+          <a class="btn btn--outline" href="/posts/">All Posts</a>
         </div>
         {{- end }}
       </div>{{- /* end latest-posts__box */}}

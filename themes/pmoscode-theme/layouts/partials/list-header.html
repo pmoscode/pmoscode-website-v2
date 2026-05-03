@@ -1,0 +1,16 @@
+{{- $isList := or (eq .Kind "taxonomy") (eq .Kind "section") -}}
+{{- $cat := cond (eq .Kind "taxonomy") .Title "" -}}
+<div class="list-header">
+  <div class="list-header__inner">
+    {{- if $isList }}
+    <div class="list-header__label">
+      {{- if eq .Kind "taxonomy" }}Category{{- else }}Blog{{- end }}
+    </div>
+    {{- end }}
+    <h1 class="list-header__title">{{ .Title }}</h1>
+    {{- partial "wave-divider.html" $cat }}
+    {{- if $isList }}
+    <div class="list-header__count">{{ len .Pages }} Posts</div>
+    {{- end }}
+  </div>
+</div>
