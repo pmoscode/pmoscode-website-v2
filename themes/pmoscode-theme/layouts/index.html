@@ -87,11 +87,8 @@
     {{- range first 3 .Site.Taxonomies.categories.ByCount }}
     <section class="cat-section">
       <div class="cat-section__header">
-        <div>
-          <h2 class="section-title">{{ .Page.Title }}</h2>
-          {{- partial "wave-divider.html" .Page.Title }}
-        </div>
-        <a class="cat-section__more" href="{{ .Page.Permalink }}">Alle anzeigen →</a>
+        <h2 class="section-title">{{ .Page.Title }}</h2>
+        {{- partial "wave-divider.html" .Page.Title }}
       </div>
       <div class="cat-section__box">
         <div class="cat-section__grid">
@@ -125,6 +122,9 @@
           {{- end }}
         </div>
         {{- end }}
+        <div class="cat-section__footer">
+          <a class="cat-section__more" href="{{ .Page.Permalink }}">View all →</a>
+        </div>
       </div>{{- /* end cat-section__box */}}
     </section>
     {{- end }}

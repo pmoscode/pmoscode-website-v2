@@ -1,7 +1,7 @@
 {{- $g := .Site.Params.giscus -}}
 {{- if and $g $g.repo_id $g.repo $g.category_id -}}
 <section class="comments">
-  <h3 class="section-title">Kommentare</h3>
+  <h3 class="section-title">Comments</h3>
   {{- partial "wave-divider.html" (index .Params.categories 0 | default "") }}
   <script src="https://giscus.app/client.js"
     data-repo="{{ $g.repo }}"
@@ -19,7 +19,7 @@
     async>
   </script>
   <noscript>
-    Bitte aktiviere JavaScript, um die Kommentare zu laden.
+    Please enable JavaScript to load comments.
   </noscript>
 </section>
 {{- end -}}

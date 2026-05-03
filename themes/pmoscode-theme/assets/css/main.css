@@ -791,18 +791,28 @@ a:hover { color: var(--primary); }
   padding: 28px;
 }
 .cat-section__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   margin-bottom: 6px;
 }
-.cat-section__more {
-  font-size: 13px;
-  color: var(--primary);
-  white-space: nowrap;
-  margin-top: 6px;
+.cat-section__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-.cat-section__more:hover { text-decoration: underline; }
+.cat-section__more {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  padding: 6px 20px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.cat-section__more:hover {
+  background: var(--primary);
+  color: #fff;
+}
 .cat-section__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
