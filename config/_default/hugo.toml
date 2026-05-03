@@ -19,22 +19,12 @@ enableGitInfo = false
   ]
 
   # ── Giscus Comments ──────────────────────────────────────────────────────
+  # Konfiguration erfolgt pro Stage in config/staging/hugo.toml bzw. config/prod/hugo.toml
   # Anleitung:
   #   1. GitHub Discussions im Repository aktivieren (Settings → Features → Discussions)
-  #   2. https://giscus.app aufrufen, Repo eingeben → Werte unten eintragen
+  #   2. https://giscus.app aufrufen, Repo eingeben → Werte eintragen
   #   3. repo_id + category_id bekommst du ausschließlich von giscus.app
   # Solange repo_id leer ist, werden Kommentare nicht angezeigt.
-  [params.giscus]
-    repo          = ""          # z.B. "pmoscode/pmoscode-website-v2"
-    repo_id       = ""          # von giscus.app generiert
-    category      = "General"   # Name der Discussion-Kategorie
-    category_id   = ""          # von giscus.app generiert
-    mapping       = "pathname"  # Zuordnung: pathname | url | title | og:title
-    strict        = "0"
-    reactions     = "1"         # 👍-Reaktionen anzeigen
-    input_position = "bottom"   # Eingabefeld: top | bottom
-    theme         = "light"     # light | dark | preferred_color_scheme | ...
-    lang          = "de"
 
   [params.contact]
     phone = "+49-123-456789"

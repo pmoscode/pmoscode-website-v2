@@ -6,3 +6,15 @@ buildFuture = false
 [params]
   env = "staging"
   debug = false
+
+  [params.giscus]
+    repo           = ""          # z.B. "pmoscode/pmoscode-website-v2-staging"
+    repo_id        = ""          # von giscus.app generiert
+    category       = "General"
+    category_id    = ""          # von giscus.app generiert
+    mapping        = "pathname"
+    strict         = "0"
+    reactions      = "1"
+    input_position = "bottom"
+    theme          = "preferred_color_scheme"
+    lang           = "de"

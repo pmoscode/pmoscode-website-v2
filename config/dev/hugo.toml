@@ -1,7 +1,0 @@
-baseURL = "http://localhost:1313/"
-environment = "dev"
-buildDrafts = true
-buildFuture = true
-
-[params]
-  env = "dev"

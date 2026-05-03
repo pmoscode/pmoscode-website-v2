@@ -43,6 +43,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- Dark Mode Toggle ---------- */
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      document.documentElement.classList.add('theme-transition');
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      setTimeout(function () {
+        document.documentElement.classList.remove('theme-transition');
+      }, 400);
+    });
+  }
+
   /* ---------- Hero Tabs (Popular / Recent) ---------- */
   document.querySelectorAll('.tab-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {

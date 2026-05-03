@@ -2,6 +2,15 @@
 <html lang="{{ .Site.Language.Lang | default "de" }}">
   <head>
     {{- partial "head.html" . -}}
+    <script>
+      (function() {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     {{- partial "header.html" . -}}
