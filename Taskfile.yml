@@ -1,0 +1,83 @@
+# https://taskfile.dev
+version: '3'
+
+tasks:
+
+  # ── Default ────────────────────────────────────────────────────────────────
+  default:
+    desc: Alle verfügbaren Tasks anzeigen
+    silent: true
+    cmds:
+      - task --list
+
+  # ── Setup ──────────────────────────────────────────────────────────────────
+  setup:
+    desc: "Projekt einrichten: Git LFS initialisieren + alle LFS-Dateien laden"
+    cmds:
+      - task: lfs:install
+      - task: lfs:pull
+
+  # ── Development ────────────────────────────────────────────────────────────
+  dev:
+    desc: Hugo Dev-Server starten (http://localhost:1313, environment=development)
+    deps: [lfs:verify]
+    cmds:
+      - hugo server
+
+  # ── Build ──────────────────────────────────────────────────────────────────
+  build:staging:
+    desc: Site für Staging bauen (minified, environment=staging)
+    deps: [lfs:verify]
+    cmds:
+      - hugo --environment staging --minify
+
+  build:prod:
+    desc: Site für Produktion bauen (minified, environment=prod)
+    deps: [lfs:verify]
+    cmds:
+      - hugo --environment prod --minify
+
+  clean:
+    desc: "Build-Artefakte löschen (public/ + resources/_gen/)"
+    prompt: public/ und resources/_gen/ wirklich löschen?
+    cmds:
+      - rm -rf public resources/_gen
+
+  # ── Content ────────────────────────────────────────────────────────────────
+  new:post:
+    desc: "Neuen Post anlegen  →  task new:post NAME=mein-post-slug"
+    requires:
+      vars: [NAME]
+    cmds:
+      - hugo new content/posts/{{.NAME}}/index.md
+      - echo 'Post erstellt unter content/posts/{{.NAME}}/index.md'
+
+  # ── Git LFS ────────────────────────────────────────────────────────────────
+  lfs:install:
+    desc: Git LFS installieren und im Repository initialisieren
+    status:
+      - git lfs env | grep -q "filter.lfs.smudge"
+    cmds:
+      - git lfs install
+
+  lfs:pull:
+    desc: Alle LFS-Dateien vom Remote laden (nach clone/checkout)
+    cmds:
+      - git lfs pull
+
+  lfs:status:
+    desc: Status aller LFS-Dateien anzeigen
+    cmds:
+      - git lfs status
+      - git lfs ls-files
+
+  lfs:verify:
+    desc: Prüfen ob Git LFS korrekt eingerichtet ist
+    internal: true
+    silent: true
+    preconditions:
+      - sh: git lfs env
+        msg: |
+          Git LFS ist nicht installiert oder nicht initialisiert.
+            macOS:  brew install git-lfs
+            Setup:  task setup

@@ -7,6 +7,12 @@ buildFuture = false
   env = "production"
   debug = false
 
+  # ── Matomo Analytics ──────────────────────────────────────────────────────
+  # Beide Werte eintragen sobald Matomo-Instanz bereit ist
+  [params.matomo]
+    url    = ""   # z.B. "https://analytics.example.com/"
+    siteId = ""   # z.B. "1"
+
   [params.giscus]
     repo           = ""          # z.B. "pmoscode/pmoscode-website-v2"
     repo_id        = ""          # von giscus.app generiert
