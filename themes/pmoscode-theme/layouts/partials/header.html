@@ -10,7 +10,18 @@
     {{- /* Main Nav */}}
     <nav class="site-nav">
       {{- range .Site.Menus.main }}
-        {{- if .HasChildren }}
+        {{- if .Params.dynamicCategories }}
+        {{- $catActive := hasPrefix $.RelPermalink "/categories/" }}
+        <div class="site-nav__item site-nav__item--dropdown">
+          <a class="site-nav__link{{ if $catActive }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+          <div class="site-nav__dropdown">
+            {{- range $.Site.Taxonomies.categories.Alphabetical }}
+            {{- $termURL := printf "/categories/%s/" .Term }}
+            <a class="{{ if eq $.RelPermalink $termURL }}active{{ end }}" href="{{ $termURL }}">{{ strings.FirstUpper .Name }}</a>
+            {{- end }}
+          </div>
+        </div>
+        {{- else if .HasChildren }}
         {{- $childActive := false }}
         {{- range .Children }}
           {{- if eq $.RelPermalink .URL }}{{ $childActive = true }}{{ end }}

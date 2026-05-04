@@ -62,46 +62,19 @@ enableGitInfo = false
     url        = "/posts/"
     weight     = 2
   [[menu.main]]
-    name       = "Woodwork"
-    url        = "/categories/woodwork/"
+    name       = "Categories"
+    url        = "/categories/"
     weight     = 3
-  [[menu.main]]
-    name       = "Hardware"
-    url        = "/categories/hardware/"
-    weight     = 4
-  [[menu.main]]
-    name       = "More"
-    url        = "#"
-    weight     = 5
     [menu.main.params]
-      hasChildren = true
-  [[menu.main]]
-    name       = "3D Print"
-    url        = "/categories/3d-print/"
-    parent     = "More"
-    weight     = 1
-  [[menu.main]]
-    name       = "Lasercutter"
-    url        = "/categories/lasercutter/"
-    parent     = "More"
-    weight     = 2
-  [[menu.main]]
-    name       = "Computer"
-    url        = "/categories/computer/"
-    parent     = "More"
-    weight     = 3
+      dynamicCategories = true
   [[menu.main]]
     name       = "Archives"
     url        = "/archives/"
-    weight     = 6
+    weight     = 4
   [[menu.main]]
     name       = "About"
     url        = "/about/"
-    weight     = 7
-  [[menu.main]]
-    name       = "Archives"
-    url        = "/archives/"
-    weight     = 7
+    weight     = 5
 
 [markup]
   [markup.goldmark]
