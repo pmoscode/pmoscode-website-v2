@@ -6,9 +6,7 @@ description  = "Second part of the DIY cash register toy. Testing the RFID reade
 categories   = ["Hardware"]
 tags         = ["raspberry-pi", "mod"]
 featured     = false
-editors_pick = true
-trending     = false
-inspiration  = false
+
 summary      = "Testing the RFID reader and thermal printer on Raspberry Pi. Serial configuration, CUPS driver setup, and the printer in action."
 +++
 
@@ -51,6 +49,8 @@ This application can help you to get the right event and to get the data from th
 As an addition, when you have a MQTT broker configured, you can provide the host and topic to the application, and the read code will be sent there.
 
 That's all for the RFID reader. Now, the thermal printer will be tested...
+
+{{< divider >}}
 
 ## The Thermal Printer
 

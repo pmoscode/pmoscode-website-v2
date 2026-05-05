@@ -6,9 +6,7 @@ description  = "A 3D print of coasters with the new Volkswagen logo"
 categories   = ["3D Print"]
 tags         = ["house"]
 featured     = false
-editors_pick = false
-trending     = true
-inspiration  = true
+
 summary      = "Inspired by an existing model on Thingiverse, I redesigned the VW coaster set with the new Volkswagen logo – and improved the container while I was at it."
 +++
 
@@ -34,6 +32,8 @@ This makes it easier to remove the coasters and the "VW" letters appeared on it.
 I also joined the container to a solid body. I think it looks better now.
 
 That's all.
+
+{{< divider >}}
 
 You can find the free STL files here:
 [https://cults3d.com/en/3d-model/home/vw-coaster-set-new-logo](https://cults3d.com/en/3d-model/home/vw-coaster-set-new-logo)

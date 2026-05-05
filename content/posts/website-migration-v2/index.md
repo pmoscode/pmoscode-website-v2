@@ -6,9 +6,7 @@ description = "How and why I rebuilt this blog from scratch — ditching a third
 categories = ["Computer"]
 tags = ["hugo", "web", "development", "css", "cicd"]
 featured = true
-editors_pick = false
-trending = false
-inspiration = false
+
 summary = "This blog just got a major overhaul. Same Hugo engine under the hood, but the theme and the pipeline were rebuilt from scratch. Here's how and why."
 +++
 
@@ -23,6 +21,8 @@ used [hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack) by CaiJimm
 handles a lot out of the box — reading time, table of contents, related posts, Giscus comments, dark mode, the works.
 
 The site lived at `pmoscode.dev`. It worked fine. So why change anything?
+
+{{< divider >}}
 
 ## The Problem with "Fine"
 
@@ -70,6 +70,8 @@ Deployments are handled by GitHub Actions. A push to the `main` branch triggers 
 tag (`v*.*.*`) triggers a production deploy via SFTP. Tasks like starting a local dev server, building, or deploying are
 managed with [Taskfile](https://taskfile.dev/) — a clean YAML-based alternative to Makefiles.
 
+{{< divider >}}
+
 ### Analytics: Matomo (as Before)
 
 [Matomo](https://matomo.org/) was already running in v1 — a self-hosted, privacy-respecting analytics platform. It
@@ -85,6 +87,8 @@ no spam problem, and commenters need a GitHub account — a reasonable filter fo
 Since both versions use Hugo Page Bundles, migrating content was mostly a matter of copying directories and adjusting
 front matter fields. The main structural difference: v1 organized posts by year (`post/2017/`, `post/2020/`, ...), while
 v2 uses a flat `posts/` directory. Slugs and URLs were kept consistent where possible to avoid breaking old links.
+
+{{< divider >}}
 
 ## Was It Worth It?
 

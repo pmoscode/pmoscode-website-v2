@@ -6,9 +6,7 @@ description  = "How to build a slatted frame"
 categories   = ["Woodwork"]
 tags         = ["house"]
 featured     = false
-editors_pick = true
-trending     = false
-inspiration  = false
+
 summary      = "After 10 years my slatted frame started to break. Instead of buying a new one, I built a solid fixed slatted frame from scratch – better for the back and safer for the dog."
 +++
 
@@ -30,6 +28,8 @@ And of course the hole had to be centered. To ensure that the holes would be dri
 {{< img src="img/resized003.jpg" alt="Hole drilling template" >}}
 
 Now it was only a matter of time…
+
+{{< divider >}}
 
 When this was done I started to assemble the frame. I used two screws on each corner.
 Now it was time to attach the dowels to the frame.

@@ -6,9 +6,7 @@ description  = "What is a French Cleat and how is it built?"
 categories   = ["Woodwork"]
 tags         = ["workshop", "house"]
 featured     = false
-editors_pick = true
-trending     = false
-inspiration  = false
+
 summary      = "My first woodworking project: a flexible French Cleat storage system for a small storage room – bomb-proof by physics."
 +++
 
@@ -34,6 +32,8 @@ The physics – more precisely, the gravitational force – is in this case the 
 The heavier the object that hangs there, the tighter is the seat of the *cleats*. However, it can be resolved without much effort.
 
 The only thing to note is that the heavier the object to be held, the more stable wood should be used for the cleats.
+
+{{< divider >}}
 
 ## Buildup
 

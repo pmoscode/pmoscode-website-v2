@@ -6,9 +6,7 @@ description  = "A short game about escaping from a dungeon filled with monsters.
 categories   = ["Computer"]
 tags         = ["game"]
 featured     = true
-editors_pick = false
-trending     = true
-inspiration  = false
+
 summary      = "My first game developed with the Godot engine. One guy, a dungeon full of monsters, no weapons – only traps and items. Try it yourself!"
 +++
 
@@ -45,6 +43,8 @@ A neat organization of the scenes (including communication among each other) and
 But, among us, it hasn't quite worked out yet...
 
 But at the time of writing, I already have two more ideas that I'm going to implement. Then the things learned will be fully implemented.
+
+{{< divider >}}
 
 Enough words… Try it yourself:
 

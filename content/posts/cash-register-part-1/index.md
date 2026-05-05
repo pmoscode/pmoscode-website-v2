@@ -6,9 +6,7 @@ description  = "First part of the DIY cash register toy built from real parts"
 categories   = ["Hardware"]
 tags         = ["raspberry-pi", "mod"]
 featured     = true
-editors_pick = false
-trending     = true
-inspiration  = false
+
 summary      = "A real cash register toy for children, built from actual used hardware: barcode scanner, thermal printer, cash drawer, RFID reader. Part 1 introduces the parts."
 +++
 
@@ -39,6 +37,8 @@ The last one I already owned. (Means: I owned a RFID reader, which is sufficient
 {{< img src="img/receiptPrinter.jpg" caption="Receipt printer" >}}
 
 {{< img src="img/cashRegister.jpg" caption="Cash register" >}}
+
+{{< divider >}}
 
 Now, I'm waiting to get the parts…
 

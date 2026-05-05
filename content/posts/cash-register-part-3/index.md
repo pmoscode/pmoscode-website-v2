@@ -6,9 +6,7 @@ description  = "Third part of the DIY cash register toy. Thermal printer graphic
 categories   = ["Hardware"]
 tags         = ["raspberry-pi", "mod"]
 featured     = false
-editors_pick = false
-trending     = false
-inspiration  = false
+
 summary      = "Printing graphics with the thermal printer via CUPS on Raspberry Pi – plus testing the 128×64 LCD display as a drop-in replacement with the ST7920 driver."
 +++
 
@@ -69,6 +67,8 @@ Don't forget to set this every time the Pi restarts:
 ```bash
 stty -F /dev/serial0 19200
 ```
+
+{{< divider >}}
 
 ## LCD Display
 

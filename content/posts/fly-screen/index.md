@@ -6,9 +6,7 @@ description  = "How to build a simple fly screen for windows"
 categories   = ["Woodwork"]
 tags         = ["house"]
 featured     = false
-editors_pick = false
-trending     = true
-inspiration  = false
+
 summary      = "My wife asked me to buy fly screens. My answer: No – I'll build them myself. A 2.30 × 1.20 m wooden-framed fly screen from construction wood and fibreglass mesh."
 +++
 
@@ -20,6 +18,8 @@ I had a plan how it could be done. The window size is 2.30 x 1.20 meters. It is 
 My plan was to build it out of construction wood. So I measured the wood into two 2.30 and four 1.20 parts. The joints consist of overlapping wood.
 
 {{< imgrow "img/resized001.jpg" "img/resized002.jpg" "img/resized003.jpg" >}}
+
+{{< divider >}}
 
 The wooden frame was glued together and tightened with screws. When this was done everything was painted brown.
 Now the main part of the fly screen had to be assembled.

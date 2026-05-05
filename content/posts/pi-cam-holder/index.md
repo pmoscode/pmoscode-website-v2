@@ -6,9 +6,7 @@ description  = "A Pi cam holder for the Anycubic I3 Mega. Mounted on the heat be
 categories   = ["3D Print"]
 tags         = ["raspberry-pi", "3D-printer"]
 featured     = false
-editors_pick = true
-trending     = true
-inspiration  = false
+
 summary      = "I wanted to access my 3D printer remotely via OctoPi – but the timelapse was too bumpy. So I designed a bed-mounted camera holder. Here's how it turned out."
 +++
 
@@ -39,6 +37,8 @@ So, if you want to print this you need the cam case from prodals Raspi holder.
 Here the print from the old bumpy perspective:
 
 {{< video src="/mov/2020/pi_cam_holder/cam_holder.mp4" autoplay="false" >}}
+
+{{< divider >}}
 
 Now, with the new Pi cam mount:
 

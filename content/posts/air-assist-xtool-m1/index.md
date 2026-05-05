@@ -6,9 +6,7 @@ description  = "Fix the design flaw of the xTool M1 – weak air flow leaves dus
 categories   = ["Lasercutter", "Hardware"]
 tags         = ["mod"]
 featured     = true
-editors_pick = true
-trending     = true
-inspiration  = true
+
 summary      = "The xTool M1 leaves a dark dust trail on every cut. Makerblock's official fix costs €159. Mine cost €30 – and works just as well."
 +++
 
@@ -24,6 +22,8 @@ This project was successfully funded on 12/10/2021.
 
 On May 30th, 2022 I held the long-awaited device in my hands. After unpacking I tried it right away.
 It ran straight away, and I was also able to engrave/cut a few sample designs with the materials that came with it.
+
+{{< divider >}}
 
 ## The Problem
 
@@ -41,6 +41,8 @@ The announcement of Makerblock on Kickstarter on September 7th, 2022 surprised m
 Here in Germany, this device should cost €159. In the end it was an air blower mounted around the laser lens. It then blows air, which gets the fine dust away from the material better.
 
 I have my own opinion on this design flaw. But I'm not willing to pay €160 for a fix that should have been done before the devices were shipped to the backers.
+
+{{< divider >}}
 
 ## The Solution
 
@@ -75,6 +77,8 @@ Both side by side:
 {{< img src="img/comparison.jpg" alt="Before/after comparison" >}}
 
 I will also build a case for it with a power switch to make it look nice and tidy. And then I must not forget to turn it on...
+
+{{< divider >}}
 
 ## Conclusion
 

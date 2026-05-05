@@ -165,6 +165,12 @@ a:hover { color: var(--primary); }
   color: var(--primary);
   display: block;
 }
+/* Shortcode: {{< divider >}} inside post body */
+.wave-divider--shortcode {
+  display: flex;
+  justify-content: center;
+  margin: 28px 0;
+}
 
 /* ---------- Card Shared ---------- */
 .card {

@@ -6,9 +6,7 @@ description  = "DIY a wooden clock out of old shelves"
 categories   = ["Woodwork"]
 tags         = ["house", "gift"]
 featured     = false
-editors_pick = true
-trending     = false
-inspiration  = true
+
 summary      = "For my darling's birthday I built a unique wall clock from old weathered shelves. Wire-brushed wood, chiselled hour markers, heart cut-outs – and one happy recipient."
 +++
 
@@ -35,6 +33,8 @@ To give the surface a prominent appearance, I also treated it with a wire brush.
 This created a "canyon look" in the grain.
 In the end, the clock surface consisted of a total of three boards, which I finally glued and oiled.
 
+{{< divider >}}
+
 **(1)** The position of the hour markers was determined and marked with the aid of a circle.
 In the centre there was also the hole for the hands.
 
@@ -50,6 +50,8 @@ This created layer was finally painted white.
 Spacers were glued between the surface of the clock and the background plate, which should provide an impression of depth.
 
 So this little project was finished. My darling was very happy about it... :)
+
+{{< divider >}}
 
 Here is an overview of the single parts:
 

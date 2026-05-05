@@ -6,9 +6,7 @@ description  = "A short game about escaping from a dungeon filled with monsters.
 categories   = ["Computer"]
 tags         = ["game"]
 featured     = false
-editors_pick = false
-trending     = false
-inspiration  = false
+
 summary      = "The source code for Last Pixel Standing is now publicly available on GitLab. Contributions welcome!"
 +++
 

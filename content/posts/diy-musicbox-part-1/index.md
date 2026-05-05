@@ -6,9 +6,7 @@ description  = "A DIY music box for children based on Raspberry Pi Zero."
 categories   = ["Hardware", "Lasercutter"]
 tags         = ["raspberry-pi", "gift"]
 featured     = false
-editors_pick = true
-trending     = false
-inspiration  = true
+
 draft        = true
 summary      = "A handmade wooden music box for children – driven by Raspberry Pi Zero, NFC cards, HiFiBerry DAC and laser-cut cottonwood panels. Part 1: hardware, case design and laser cutting."
 +++
@@ -37,6 +35,8 @@ It should...
 * ...work with NFC to distinguish between the audio files (music tracks or audiobooks)
 
 This was my starting point.
+
+{{< divider >}}
 
 ## The Hardware
 
@@ -72,6 +72,8 @@ Pictures of the components:
 Now the fun part: putting the hardware together.
 
 *(Fritzing wiring diagram will follow in Part 2)*
+
+{{< divider >}}
 
 ## The Case
 
@@ -115,6 +117,8 @@ It was very straightforward. The result (here already assembled):
 
 The only flaw was the dust the laser left (you can see it around the finger joints). I managed this a little later –
 you can read about it [here](/posts/air-assist-xtool-m1/).
+
+{{< divider >}}
 
 ## Conclusion
 
