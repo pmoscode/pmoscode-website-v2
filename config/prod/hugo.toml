@@ -1,4 +1,4 @@
-baseURL = "https://pmoscode.de/"
+baseURL = "https://pmoscode.dev/"
 environment = "production"
 buildDrafts = false
 buildFuture = false
